@@ -1,2 +1,29 @@
 # Genesis
 Projet S2 à Epita du groupe S2 Secret Project
+
+Information about git:
+
+- Get info about the current state of the repository: "git log" (or git log --oneline)
+- Create a branch:
+	- git branch branch_name
+	- git checkout branch_name
+	- git push --set-upstream origin branch_name (or git push and then use the proposed sentence)
+- Merge:
+	- git checkout dev
+	- git merge feature_1
+	- ...
+	- git merge feature_n
+- Delete a branch:
+	- git checkout branch_name
+	- git push origin --delete branch-name
+	- git checkout dev
+	- git branch -d branch_name
+- When working on the project, always:
+	- Pull the repository
+	- Do your work without touching anybody else's file (if you need to, call for a merge)
+	(- Update a README or comment your code)
+	- Add only the files you modified to the commit
+	- Commit the repository with an explicit name
+	- Push the repository
+
+The most important thing is that you always need to pull and push the project beafore and after working on it.
