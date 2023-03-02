@@ -9,17 +9,17 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> dialogue;
     public  Text Name;
     public Text Texte;
+    public Animator panel;
     private void Awake()
     {
         dialogue = new Queue<string>();
         instance = this;
     }
 
-    // Update is called once per frame
     public void StartADialogue(NpcScript npc)
     {
         Name.text = npc.NPCName;
-
+		panel.SetBool("isOpen",true);
         dialogue.Clear();
         foreach (string texteframe in npc.NPCDialogue.texte)
         {
@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (dialogue.Count == 0)
         {
+			panel.SetBool("isOpen",false);
             return;
         }
 

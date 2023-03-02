@@ -5,34 +5,42 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
+
 public class NpcScript : EntityScript
 {
     public string NPCName;
+    public Rigidbody2D NPCBody;
     public bool PlayerInRange;
 
     public Dialogue NPCDialogue;
-    public Rigidbody2D body;
-    
-    public NavMeshAgent agent;
-    public Transform[] points;
-    
+    public Vector2[] points;
+    public int i;
+
     // Start is called before the first frame update
     void Start()
     {
-        speed = 8;
-        //agent = GetComponent<NavMeshAgent>();
-        agent.autoBraking = false;
+        i = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerInRange && Input.GetKeyDown(KeyCode.E))
+        if (PlayerInRange)
         {
-            StartDialogue();
-        }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartDialogue();
+            }
 
-        agent.SetDestination(points[0].position);
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                ContinueDialogue();
+            }
+        }
+        else
+        {
+            GoToNextPoint();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -49,12 +57,33 @@ public class NpcScript : EntityScript
         if (collision.CompareTag("Player"))
         {
             PlayerInRange = false;
-            speed = 4;
+            speed = 1;
         } 
     }
 
     private void StartDialogue()
     {
         DialogueManager.instance.StartADialogue(this);
+    }
+
+    private void ContinueDialogue()
+    {
+        DialogueManager.instance.ContinueADialogue();
+    }
+
+    private void GoToNextPoint()
+    {
+        Vector2 actual_pos = NPCBody.position;
+        if (Math.Round(NPCBody.position.x) != points[i].x || Math.Round(NPCBody.position.y) != points[i].y)
+        {
+            //Vector2 directionTranslation = new Vector2(points[i].x - actual_pos.x, points[i].y - actual_pos.y);
+            //directionTranslation *= Time.deltaTime * speed;
+            transform.position = Vector2.MoveTowards(transform.position, points[i], Time.deltaTime * speed);
+        }
+        else
+        {
+            
+            i = (i + 1)%points.Length;
+        }
     }
 }
