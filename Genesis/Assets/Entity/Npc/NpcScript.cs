@@ -14,7 +14,11 @@ public class NpcScript : EntityScript
 
     public Dialogue NPCDialogue;
     public Vector2[] points;
-    public int i;
+
+    public Quest NPCQuest;
+    private int i;
+
+    public bool DEBUG;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +39,7 @@ public class NpcScript : EntityScript
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 ContinueDialogue();
+                DEBUG = true;
             }
         }
         else
@@ -68,7 +73,10 @@ public class NpcScript : EntityScript
 
     private void ContinueDialogue()
     {
-        DialogueManager.instance.ContinueADialogue();
+        if (DialogueManager.instance.ContinueADialogue())
+        {
+            QuestManager.instance.StartAQuest(this.NPCQuest);
+        }
     }
 
     private void GoToNextPoint()

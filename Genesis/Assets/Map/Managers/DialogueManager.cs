@@ -12,6 +12,11 @@ public class DialogueManager : MonoBehaviour
     public Animator panel;
     private void Awake()
     {
+        //if(instance != null)
+        //{
+          //  Debug.LogWarning("Il y a plus d'une instance de DialogueManager dans la scène");
+            //return;
+        //}
         dialogue = new Queue<string>();
         instance = this;
     }
@@ -29,14 +34,27 @@ public class DialogueManager : MonoBehaviour
         ContinueADialogue();
     }
 
-    public void ContinueADialogue()
+    public bool ContinueADialogue()
     {
         if (dialogue.Count == 0)
         {
 			panel.SetBool("isOpen",false);
-            return;
+            return true;
         }
 
-        Texte.text = dialogue.Dequeue();
+        string text = dialogue.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(text));
+        return false;
+    }
+    
+    IEnumerator TypeSentence(string sentence)
+    {
+        Texte.text = "";
+        foreach (char letter in sentence.ToCharArray())
+        {
+            Texte.text += letter;
+            yield return null;
+        }
     }
 }
