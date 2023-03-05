@@ -12,7 +12,7 @@ public class PlayerScript : EntityScript
     void Start()
     {
         speed = 10;
-        currentHealth = maxHealth;
+        currentHealth = 80;
         healthBar.SetMaxHealth(maxHealth);
     }
 
