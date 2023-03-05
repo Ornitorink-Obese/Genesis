@@ -4,6 +4,7 @@ public class PlayerScript : EntityScript
 {
     public Rigidbody2D body;
     public HealthBar healthBar;
+    public Collider2D PlayerCollider;
     
     public int maxHealth = 100;
     public int currentHealth;
@@ -13,7 +14,7 @@ public class PlayerScript : EntityScript
     {
         speed = 10;
         currentHealth = 80;
-        healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
     }
 
     void Update()
@@ -29,9 +30,22 @@ public class PlayerScript : EntityScript
         
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(20);
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
-    void TakeDamage(int damage)
+    public void Die()
+    {
+        speed = 0;
+        body.bodyType = RigidbodyType2D.Kinematic;
+        PlayerCollider.enabled = false; 
+        GameOverPanel.instance.OnPlayerDeath();
+    }
+    
+    public void TakeDamage(int damage)
     {
         if (currentHealth != 0)
         {
@@ -44,7 +58,12 @@ public class PlayerScript : EntityScript
     {
         if (currentHealth != maxHealth)
         {
-            currentHealth += heal;
+            if (currentHealth + heal > 100)
+                currentHealth = heal;
+            
+            else
+                currentHealth += heal;
+            
             healthBar.SetHealth(currentHealth);
             return true;
         }
