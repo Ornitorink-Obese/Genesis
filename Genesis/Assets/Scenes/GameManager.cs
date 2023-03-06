@@ -28,7 +28,6 @@ public class GameManager : MonoBehaviour
     
     public void Resume()
     {
-        Debug.LogWarning("ta grande tante la gentille cuisinière");
         gamePausedPanel.SetActive(false);
         Time.timeScale = 1;
         GameIsPaused = false;
