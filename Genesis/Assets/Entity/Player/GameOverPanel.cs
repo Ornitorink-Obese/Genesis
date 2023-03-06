@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverPanel : PlayerScript
+public class GameOverPanel : MonoBehaviour
 {
     public void Quit()
     {

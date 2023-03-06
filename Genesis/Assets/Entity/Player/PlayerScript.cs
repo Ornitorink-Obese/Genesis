@@ -6,6 +6,7 @@ public class PlayerScript : EntityScript
     public HealthBar healthBar;
     public Collider2D PlayerCollider;
     public GameObject gameOverPanel;
+
     
     public int maxHealth = 100;
 
@@ -29,6 +30,7 @@ public class PlayerScript : EntityScript
         
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(20);
+        
 
         if (health <= 0)
         {
