@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MobScript : EntityScript
 {
+    public Collider2D mobCollider;
+    public PlayerScript player;
+    
     // Start is called before the first frame update
     public int damage;
     public Rigidbody2D bob;
@@ -12,7 +15,8 @@ public class MobScript : EntityScript
 
     void Start()
     {
-        health = 50;
+        health = 20;
+        enabled = true;
         damage = 10;
         speed = 5;
     }
@@ -25,6 +29,17 @@ public class MobScript : EntityScript
         {
             transform.position = Vector2.MoveTowards(transform.position, bob.position , speed * Time.deltaTime);
         }
+
+        if (mobCollider.IsTouching(player.weaponCollider))
+        {
+            health -= 5;
+            StartCoroutine(Wait(1));
+        }
+
+        IEnumerator Wait(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
         
         if (health <= 0)
         {

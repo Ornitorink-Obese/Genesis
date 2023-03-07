@@ -1,20 +1,26 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : EntityScript
 {
     public Rigidbody2D body;
     public HealthBar healthBar;
-    public Collider2D PlayerCollider;
+    public Collider2D playerCollider;
     public GameObject gameOverPanel;
+    public Collider2D weaponCollider;
 
-    
     public int maxHealth = 100;
+    private bool canAttack;
 
     void Start()
     {
         speed = 10;
         health = 80;
         healthBar.SetHealth(health);
+        weaponCollider.transform.position = transform.position;
+        canAttack = true;
     }
 
     void Update()
@@ -30,8 +36,10 @@ public class PlayerScript : EntityScript
         
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(20);
-        
-
+        if (Input.GetMouseButtonDown(0) && canAttack)
+        {
+            StartCoroutine(Attack());
+        }
         if (health <= 0)
         {
             Die();
@@ -42,7 +50,7 @@ public class PlayerScript : EntityScript
     {
         speed = 0;
         body.bodyType = RigidbodyType2D.Kinematic;
-        PlayerCollider.enabled = false; 
+        playerCollider.enabled = false; 
         gameOverPanel.SetActive(true);
     }
     
@@ -70,5 +78,22 @@ public class PlayerScript : EntityScript
         }
 
         return false;
+    }
+
+    public IEnumerator Attack()
+    {
+        Vector3 mouse = Input.mousePosition;
+        Vector3 pos = transform.position;
+        float xDistance = mouse.x - pos.x;
+        float yDistance = mouse.y - pos.y;
+        double coeff = 2.5 / Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
+        weaponCollider.offset = new Vector3((float)(pos.x * coeff), (float)(pos.y * coeff), 0);
+        weaponCollider.enabled = true;
+        // deals damage to mob
+        canAttack = false;
+        yield return new WaitForSeconds(1);
+        weaponCollider.enabled = false;
+        canAttack = true;
+        //Debug.Log("drftghyujikoikjuhyg");
     }
 }
