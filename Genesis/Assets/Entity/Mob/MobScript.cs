@@ -6,6 +6,7 @@ public class MobScript : EntityScript
 {
     public Collider2D mobCollider;
     public PlayerScript player;
+    public bool atak;
     
     // Start is called before the first frame update
     public int damage;
@@ -15,6 +16,7 @@ public class MobScript : EntityScript
 
     void Start()
     {
+        atak = false;
         health = 20;
         enabled = true;
         damage = 10;
@@ -28,6 +30,11 @@ public class MobScript : EntityScript
         if (Vector2.Distance(transform.position,bob.position) < 5.0f)
         {
             transform.position = Vector2.MoveTowards(transform.position, bob.position , speed * Time.deltaTime);
+        }
+
+        if (joueur.playerCollider.IsTouching(mobCollider))
+        {
+            StartCoroutine(Waitfor());
         }
 
         if (mobCollider.IsTouching(player.weaponCollider))
@@ -55,17 +62,15 @@ public class MobScript : EntityScript
             Vector2 back = transform.position;
             if(bob.position.x < transform.position.x)
             {
-                back.x = back.x - 1;
+                back.x = back.x - 6;
             }
 
             else
             {
-                back.x = back.x - 1;
+                back.x = back.x + 6 ;
             }
 
             transform.position = Vector2.MoveTowards(transform.position, back , speed * Time.deltaTime);
-            StopAllCoroutines();
-            Time.timeScale = 5f;
             StartCoroutine(Waitfor());
         }
  
@@ -73,9 +78,7 @@ public class MobScript : EntityScript
 
     IEnumerator Waitfor()
     {
-        Debug.Log(Time.time);
-        yield return new WaitForSecondsRealtime(50f);
-        Debug.Log(Time.time);
+        yield return new WaitForSecondsRealtime(10);
     }
 
 }
