@@ -1,22 +1,27 @@
+using System;
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
 
 public class MobScript : EntityScript
 {
-    public Collider2D mobCollider;
-    public PlayerScript player;
+    public CapsuleCollider2D mobCollider;
     public bool atak;
     
     public int damage;
     public Rigidbody2D bob;
     public PlayerScript joueur;
     public GameObject itemsDropped;
+    public CircleCollider2D weaponCollider;
 
+    IEnumerator Wait(int seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
 
     void Start()
     {
-        atak = false;
+        atak = true;
         health = 20;
         enabled = true;
         damage = 10;
@@ -36,17 +41,8 @@ public class MobScript : EntityScript
             StartCoroutine(Waitfor());
         }
 
-        if (mobCollider.IsTouching(player.weaponCollider))
-        {
-            health -= 5;
-            StartCoroutine(Wait(1));
-        }
-
-        IEnumerator Wait(int seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-        }
-        
+        if (Input.GetKeyDown(KeyCode.K))
+            health = 0;
         if (health <= 0)
         {
             Destroy(transform.gameObject);
@@ -58,35 +54,43 @@ public class MobScript : EntityScript
     {
         if (collision.CompareTag("Player"))
         {
-            joueur.health -= damage;
-            Vector2 back = transform.position;
-            if(bob.position.x < transform.position.x)
+            if (collision is CapsuleCollider2D)
             {
-<<<<<<< HEAD
-                back.x = back.x - 6;
-=======
-                back.x --;
->>>>>>> bf82e1272ce04022dae764c779c8fa4f0be5c7df
-            }
+                joueur.health -= damage;
+                Vector2 back = transform.position;
+                if (bob.position.x < transform.position.x)
+                {
+                    back.x = back.x - 6;
+                    back.x--;
+                }
 
-            else
+                else
+                {
+                    back.x = back.x + 6;
+                    back.x--;
+                }
+
+                transform.position = Vector2.MoveTowards(transform.position, back, speed * Time.deltaTime);
+                StartCoroutine(Waitfor());
+            }
+            else if (collision is CircleCollider2D && atak)
             {
-<<<<<<< HEAD
-                back.x = back.x + 6 ;
-=======
-                back.x --;
->>>>>>> bf82e1272ce04022dae764c779c8fa4f0be5c7df
+                atak = false;
+                TakeDamage(damage);
+                StartCoroutine(Wait(2));
+                atak = true;
             }
-
-            transform.position = Vector2.MoveTowards(transform.position, back , speed * Time.deltaTime);
-            StartCoroutine(Waitfor());
         }
- 
     }
 
     private void ItemDrop()
     {
         Instantiate(itemsDropped, transform.position, quaternion.identity);
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
     IEnumerator Waitfor()

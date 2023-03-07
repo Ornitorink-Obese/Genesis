@@ -7,7 +7,7 @@ public class QuestManager : MonoBehaviour
 {
     public static QuestManager instance;
 
-    private Quest ActualQuest;
+    public Quest ActualQuest;
 
     public Animator QuestPanel;
     public Text Name;
@@ -32,6 +32,7 @@ public class QuestManager : MonoBehaviour
         instance = this;
         LogoValidate.active = false;
         Logo.active = true;
+        CompleteType = null;
         CompleteOpposedType = null; // Pour la premiére soutenance
     }
 
@@ -58,7 +59,7 @@ public class QuestManager : MonoBehaviour
 
     public void Update()
     {
-        if (ActualQuest.QuestStatus == Quest.Status.ASSIGNED & CompleteType == null)
+        if (!(ActualQuest is null) && ActualQuest.QuestStatus == Quest.Status.ASSIGNED && CompleteType == null)
         {
             FinishAQuestType();
         }

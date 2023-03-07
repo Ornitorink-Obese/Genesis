@@ -20,6 +20,7 @@ public class PlayerScript : EntityScript
         health = 80;
         healthBar.SetHealth(health);
         weaponCollider.transform.position = transform.position;
+        weaponCollider.enabled = false;
         canAttack = true;
     }
 
@@ -36,7 +37,7 @@ public class PlayerScript : EntityScript
         
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(20);
-        if (Input.GetMouseButtonDown(0) && canAttack)
+        if (Input.GetKeyDown(KeyCode.Keypad0) && canAttack)
         {
             StartCoroutine(Attack());
         }
@@ -94,6 +95,5 @@ public class PlayerScript : EntityScript
         yield return new WaitForSeconds(1);
         weaponCollider.enabled = false;
         canAttack = true;
-        //Debug.Log("drftghyujikoikjuhyg");
     }
 }
