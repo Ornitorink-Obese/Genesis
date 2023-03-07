@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
-
+using UnityEngine.UI;
 
 public class NpcScript : EntityScript
 {
     public string NPCName;
     public Rigidbody2D NPCBody;
     public bool PlayerInRange;
+    public Text PlayerInRangeText;
 
     public Dialogue NPCDialogue;
     public Vector2[] points;
@@ -33,17 +33,20 @@ public class NpcScript : EntityScript
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                PlayerInRangeText.enabled = false;
                 StartDialogue();
             }
 
             if (Input.GetKeyDown(KeyCode.Return))
             {
+                PlayerInRangeText.enabled = false;
                 ContinueDialogue();
-                DEBUG = true;
+                //DEBUG = true;
             }
         }
         else
         {
+			PlayerInRangeText.enabled = false;
             GoToNextPoint();
         }
     }
@@ -53,6 +56,7 @@ public class NpcScript : EntityScript
         if (collision.CompareTag("Player"))
         {
             PlayerInRange = true;
+            PlayerInRangeText.enabled = true;
             speed = 0;
         } 
     }
@@ -84,8 +88,6 @@ public class NpcScript : EntityScript
         Vector2 actual_pos = NPCBody.position;
         if (Math.Round(NPCBody.position.x) != points[i].x || Math.Round(NPCBody.position.y) != points[i].y)
         {
-            //Vector2 directionTranslation = new Vector2(points[i].x - actual_pos.x, points[i].y - actual_pos.y);
-            //directionTranslation *= Time.deltaTime * speed;
             transform.position = Vector2.MoveTowards(transform.position, points[i], Time.deltaTime * speed);
         }
         else

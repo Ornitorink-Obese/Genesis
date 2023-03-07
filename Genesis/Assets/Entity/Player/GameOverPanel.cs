@@ -10,7 +10,7 @@ public class GameOverPanel : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("Menu");
     }
 
     public void Retry()

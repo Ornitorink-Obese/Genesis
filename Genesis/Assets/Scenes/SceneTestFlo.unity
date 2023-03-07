@@ -134,11 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &714930868 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3398677671450831863, guid: 22d03ecf00df3354ba73e9dd9b7ba0f4, type: 3}
-  m_PrefabInstance: {fileID: 4608729203128165963}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &820118411 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 810952670519491496, guid: 22d03ecf00df3354ba73e9dd9b7ba0f4, type: 3}
@@ -226,9 +221,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 575958bd153208949a5a943f22745ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 714930868}
+  QuestPanel: {fileID: 0}
   Name: {fileID: 458914372}
   Description: {fileID: 865797986}
+  Logo: {fileID: 0}
+  LogoValidate: {fileID: 0}
+  CompleteType: {fileID: 0}
+  CompleteOpposedType: {fileID: 0}
 --- !u!95 &1241760354 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 432838028435943596, guid: 22d03ecf00df3354ba73e9dd9b7ba0f4, type: 3}
@@ -410,6 +409,10 @@ PrefabInstance:
     - target: {fileID: 2317399825535133518, guid: e7efc3df6f07f8345abe8b70d5fb1cde, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5378380620373242837, guid: e7efc3df6f07f8345abe8b70d5fb1cde, type: 3}
+      propertyPath: PlayerInRangeText
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
