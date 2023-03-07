@@ -13,9 +13,17 @@ public class Quest
     {
         UNASSIGNED,
         ASSIGNED,
-        FINISHGOOD,
-        FINISHBAD
+        FINISHED
     }
-    
+
+    public enum Type
+    {
+        GOOD,
+        BAD
+    }
     public Status QuestStatus;
+
+    public Type QuestType;
+
+
 }
