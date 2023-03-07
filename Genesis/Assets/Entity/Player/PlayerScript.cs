@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerScript : EntityScript
@@ -34,8 +36,10 @@ public class PlayerScript : EntityScript
         
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(20);
-        if (Input.GetMouseButtonDown(1) && canAttack)
-            Attack();
+        if (Input.GetMouseButtonDown(0) && canAttack)
+        {
+            StartCoroutine(Attack());
+        }
         if (health <= 0)
         {
             Die();
@@ -76,20 +80,20 @@ public class PlayerScript : EntityScript
         return false;
     }
 
-    public void Attack()
+    public IEnumerator Attack()
     {
         Vector3 mouse = Input.mousePosition;
         Vector3 pos = transform.position;
         float xDistance = mouse.x - pos.x;
         float yDistance = mouse.y - pos.y;
-        double coeff = 0.25 / Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
-        weaponCollider.transform.position = new Vector3((float)(pos.x * coeff), (float)(pos.y * coeff), 0);
+        double coeff = 2.5 / Math.Sqrt(Math.Pow(xDistance, 2) + Math.Pow(yDistance, 2));
+        weaponCollider.offset = new Vector3((float)(pos.x * coeff), (float)(pos.y * coeff), 0);
         weaponCollider.enabled = true;
         // deals damage to mob
-        weaponCollider.enabled = false;
         canAttack = false;
-        float beginning = Time.time;
-        while (beginning + 1 > Time.time) ;
+        yield return new WaitForSeconds(1);
+        weaponCollider.enabled = false;
         canAttack = true;
+        //Debug.Log("drftghyujikoikjuhyg");
     }
 }
