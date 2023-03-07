@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class MobScript : EntityScript
@@ -7,10 +7,10 @@ public class MobScript : EntityScript
     public Collider2D mobCollider;
     public PlayerScript player;
     
-    // Start is called before the first frame update
     public int damage;
     public Rigidbody2D bob;
     public PlayerScript joueur;
+    public GameObject itemsDropped;
 
 
     void Start()
@@ -22,7 +22,6 @@ public class MobScript : EntityScript
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         if (Vector2.Distance(transform.position,bob.position) < 5.0f)
@@ -37,13 +36,14 @@ public class MobScript : EntityScript
         }
 
         IEnumerator Wait(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
+        {
+            yield return new WaitForSeconds(seconds);
+        }
         
         if (health <= 0)
         {
             Destroy(transform.gameObject);
+            ItemDrop();
         }
     }
 
@@ -51,16 +51,16 @@ public class MobScript : EntityScript
     {
         if (collision.CompareTag("Player"))
         {
-            joueur.health = joueur.health - damage;
+            joueur.health -= damage;
             Vector2 back = transform.position;
             if(bob.position.x < transform.position.x)
             {
-                back.x = back.x - 1;
+                back.x --;
             }
 
             else
             {
-                back.x = back.x - 1;
+                back.x --;
             }
 
             transform.position = Vector2.MoveTowards(transform.position, back , speed * Time.deltaTime);
@@ -69,6 +69,11 @@ public class MobScript : EntityScript
             StartCoroutine(Waitfor());
         }
  
+    }
+
+    private void ItemDrop()
+    {
+        Instantiate(itemsDropped, transform.position, quaternion.identity);
     }
 
     IEnumerator Waitfor()
