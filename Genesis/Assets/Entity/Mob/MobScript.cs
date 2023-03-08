@@ -76,7 +76,7 @@ public class MobScript : EntityScript
             else if (collision is CircleCollider2D && atak)
             {
                 atak = false;
-                TakeDamage(damage);
+                TakeDamage(joueur.damage);
                 StartCoroutine(Wait(2));
                 atak = true;
             }

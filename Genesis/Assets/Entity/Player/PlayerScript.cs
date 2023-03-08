@@ -10,7 +10,8 @@ public class PlayerScript : EntityScript
     public Collider2D playerCollider;
     public GameObject gameOverPanel;
     public Collider2D weaponCollider;
-
+    public int damage;
+    
     public int maxHealth = 100;
     private bool canAttack;
 
@@ -18,6 +19,7 @@ public class PlayerScript : EntityScript
     {
         speed = 10;
         health = 80;
+        damage = 7;
         healthBar.SetHealth(health);
         weaponCollider.transform.position = transform.position;
         weaponCollider.enabled = false;
