@@ -56,7 +56,7 @@ public class MobScript : EntityScript
         {
             if (collision is CapsuleCollider2D)
             {
-                joueur.health -= damage;
+                joueur.TakeDamage(damage);
                 Vector2 back = transform.position;
                 if (bob.position.x < transform.position.x)
                 {
