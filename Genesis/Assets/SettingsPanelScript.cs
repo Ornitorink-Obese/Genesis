@@ -1,56 +1,60 @@
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
 public class SettingsPanelScript : MonoBehaviour
 {
-    public AudioMixer Audio;
-    private Resolution[] resolutionlist;
-    public TMP_Dropdown drop;
-    public GameObject settingsPanel;
+    public TMP_Dropdown resolutionsDropdown;
+    public Resolution[] m_Resolutions;
 
+    public AudioMixer am;
 
+    public GameObject settingspanel;
+    
     public void Start()
     {
-        drop.ClearOptions();
-        List<string> option = new List<string>();
-        resolutionlist = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height} ).Distinct().ToArray();
-        int currentresolutionindex = 0;
-        for (int i = 0; i< resolutionlist.Length; i++)
+        m_Resolutions = Screen.resolutions.Select(resolution => new Resolution { width = resolution.width, height = resolution.height }).Distinct().ToArray();
+        resolutionsDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        int currentResolutionIndex = 0;
+        for (int i = 0; i < m_Resolutions.Length; i++)
         {
-            option.Add(resolutionlist[i].width + "x" + resolutionlist[i].height);
-            if (resolutionlist[i].width == Screen.width && resolutionlist[i].height == Screen.height)
-                currentresolutionindex = i;
+            options.Add(m_Resolutions[i].width + "x" + m_Resolutions[i].height);
+
+            if (m_Resolutions[i].height == Screen.height && m_Resolutions[i].width == Screen.width)
+                currentResolutionIndex = i;
         }
-        drop.AddOptions(option);
-        drop.value = currentresolutionindex;
-        drop.RefreshShownValue();
-       
+        
+        resolutionsDropdown.AddOptions(options);
+        resolutionsDropdown.value = currentResolutionIndex;
+        resolutionsDropdown.RefreshShownValue();
     }
 
-    public void SetResolution(int index)
+    public void SetResolution(int resolutionIndex)
     {
-        Resolution resolution = resolutionlist[index];
+        Debug.LogWarning(resolutionIndex + " // " + m_Resolutions[resolutionIndex]);
+        Resolution resolution = m_Resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-
-
-    public void SetFullScreen(bool coche)
+    public void SetFullScreen(bool isFullScreen)
     {
-        Screen.fullScreen = coche;
+        Debug.LogWarning(isFullScreen);
+        Screen.fullScreen = isFullScreen;
     }
 
     public void SetVolume(float volume)
     {
-        Audio.SetFloat("volume", volume);
+        am.SetFloat("volume", volume);
     }
 
-    
-    public void Return()
+    public void ExitSettings()
     {
-        settingsPanel.SetActive(false);
+        settingspanel.SetActive(false);
     }
 }

@@ -37,10 +37,15 @@ public class PlayerScript : EntityScript
         
         if (Input.GetKeyDown(KeyCode.H))
             TakeDamage(20);
-        if (Input.GetKeyDown(KeyCode.Keypad0) && canAttack)
+        
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
             StartCoroutine(Attack());
         }
+
+        if (Input.GetKeyDown(KeyCode.RightShift))
+            HealPlayer(100);
+            
         if (health <= 0)
         {
             Die();
