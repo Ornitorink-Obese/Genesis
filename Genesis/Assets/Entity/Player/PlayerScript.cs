@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
             Debug.Log("il y a plus d'une instance de PlayerScript");
             return;
         }
-
+        
         instance = this;
     }
     
