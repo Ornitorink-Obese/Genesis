@@ -1,26 +1,34 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScript : EntityScript
+public class PlayerScript : MonoBehaviour
 {
     public Rigidbody2D body;
-    public HealthBar healthBar;
     public Collider2D playerCollider;
-    public GameObject gameOverPanel;
     public Collider2D weaponCollider;
+
+    public int speed;
     public int damage;
-    
-    public int maxHealth = 100;
     private bool canAttack;
 
+    public static PlayerScript instance;
+    
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("il y a plus d'une instance de PlayerScript");
+            return;
+        }
+
+        instance = this;
+    }
+    
     void Start()
     {
         speed = 10;
-        health = 80;
         damage = 7;
-        healthBar.SetHealth(health);
         weaponCollider.transform.position = transform.position;
         weaponCollider.enabled = false;
         canAttack = true;
@@ -37,55 +45,12 @@ public class PlayerScript : EntityScript
         if (Input.GetKey(KeyCode.RightArrow))
             body.position += Vector2.right * (speed * Time.deltaTime);
         
-        if (Input.GetKeyDown(KeyCode.H))
-            TakeDamage(20);
-        
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             StartCoroutine(Attack());
         }
 
-        if (Input.GetKeyDown(KeyCode.RightShift))
-            HealPlayer(100);
-            
-        if (health <= 0)
-        {
-            Die();
-        }
-    }
 
-    public void Die()
-    {
-        speed = 0;
-        body.bodyType = RigidbodyType2D.Kinematic;
-        playerCollider.enabled = false; 
-        gameOverPanel.SetActive(true);
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        if (health != 0)
-        {
-            health -= damage;
-            healthBar.SetHealth(health);
-        }
-    }
-
-    public bool HealPlayer(int heal)
-    {
-        if (health != maxHealth)
-        {
-            if (health + heal > 100)
-                health = heal;
-            
-            else
-                health += heal;
-            
-            healthBar.SetHealth(health);
-            return true;
-        }
-
-        return false;
     }
 
     public IEnumerator Attack()

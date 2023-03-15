@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Unity.Mathematics;
 using UnityEngine;
@@ -56,7 +55,7 @@ public class MobScript : EntityScript
         {
             if (collision is CapsuleCollider2D)
             {
-                joueur.TakeDamage(damage);
+                HealthManager.instance.TakeDamage(damage);
                 Vector2 back = transform.position;
                 if (bob.position.x < transform.position.x)
                 {

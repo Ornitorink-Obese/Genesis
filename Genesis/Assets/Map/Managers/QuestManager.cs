@@ -29,7 +29,7 @@ public class QuestManager : MonoBehaviour
             return;
         }
         instance = this;
-        LogoValidate.active = false;
+        LogoValidate.SetActive(false);
         Logo.SetActive(true);
         CompleteOpposedType = null; // Pour la premiére soutenance
     }
