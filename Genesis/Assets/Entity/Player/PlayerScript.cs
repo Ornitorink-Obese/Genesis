@@ -7,10 +7,12 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D body;
     public Collider2D playerCollider;
     public Collider2D weaponCollider;
+    public Camera cam;
 
     public int speed;
     public int damage;
     private bool canAttack;
+    private Vector3 offset;
 
     public static PlayerScript instance;
     
@@ -32,6 +34,8 @@ public class PlayerScript : MonoBehaviour
         weaponCollider.transform.position = transform.position;
         weaponCollider.enabled = false;
         canAttack = true;
+
+        offset = cam.transform.position - transform.position;
     }
 
     void Update()
@@ -49,8 +53,11 @@ public class PlayerScript : MonoBehaviour
         {
             StartCoroutine(Attack());
         }
+    }
 
-
+    void LateUpdate()
+    {
+        cam.transform.position = transform.position + offset;
     }
 
     public IEnumerator Attack()

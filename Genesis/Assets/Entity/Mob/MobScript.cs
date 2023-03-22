@@ -8,8 +8,6 @@ public class MobScript : EntityScript
     public bool atak;
     
     public int damage;
-    public Rigidbody2D bob;
-    public PlayerScript joueur;
     public GameObject itemsDropped;
     public CircleCollider2D weaponCollider;
 
@@ -30,12 +28,12 @@ public class MobScript : EntityScript
 
     void Update()
     {
-        if (Vector2.Distance(transform.position,bob.position) < 5.0f)
+        if (Vector2.Distance(transform.position,PlayerScript.instance.GetComponent<Rigidbody2D>().position) < 5.0f)
         {
-            transform.position = Vector2.MoveTowards(transform.position, bob.position , speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerScript.instance.GetComponent<Rigidbody2D>().position , speed * Time.deltaTime);
         }
 
-        if (joueur.playerCollider.IsTouching(mobCollider))
+        if (PlayerScript.instance.playerCollider.IsTouching(mobCollider))
         {
             StartCoroutine(Waitfor());
         }
@@ -57,7 +55,7 @@ public class MobScript : EntityScript
             {
                 HealthManager.instance.TakeDamage(damage);
                 Vector2 back = transform.position;
-                if (bob.position.x < transform.position.x)
+                if (PlayerScript.instance.GetComponent<Rigidbody2D>().position.x < transform.position.x)
                 {
                     back.x = back.x - 6;
                     back.x--;
@@ -75,7 +73,7 @@ public class MobScript : EntityScript
             else if (collision is CircleCollider2D && atak)
             {
                 atak = false;
-                TakeDamage(joueur.damage);
+                TakeDamage(PlayerScript.instance.damage);
                 StartCoroutine(Wait(2));
                 atak = true;
             }
