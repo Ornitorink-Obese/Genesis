@@ -2,8 +2,6 @@
 
 public class HealthManager : MonoBehaviour
 {
-    public GameObject gameOverPanel;
-
     public int health;
     private int maxHealth = 100;
 
@@ -46,7 +44,7 @@ public class HealthManager : MonoBehaviour
         PlayerScript.instance.speed = 0;
         PlayerScript.instance.body.bodyType = RigidbodyType2D.Kinematic;
         PlayerScript.instance.playerCollider.enabled = false; 
-        gameOverPanel.SetActive(true);
+        GameOverPanel.instance.Activate();
     }
     
     public void TakeDamage(int damage)
