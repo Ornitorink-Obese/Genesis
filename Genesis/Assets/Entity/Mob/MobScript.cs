@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.Mathematics;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MobScript : EntityScript
@@ -8,10 +8,10 @@ public class MobScript : EntityScript
     public PlayerScript player;
     public bool atak;
     
+    // Start is called before the first frame update
     public int damage;
     public Rigidbody2D bob;
     public PlayerScript joueur;
-    public GameObject itemsDropped;
 
 
     void Start()
@@ -24,6 +24,7 @@ public class MobScript : EntityScript
     }
 
 
+    // Update is called once per frame
     void Update()
     {
         if (Vector2.Distance(transform.position,bob.position) < 5.0f)
@@ -43,14 +44,13 @@ public class MobScript : EntityScript
         }
 
         IEnumerator Wait(int seconds)
-        {
-            yield return new WaitForSeconds(seconds);
-        }
+    {
+        yield return new WaitForSeconds(seconds);
+    }
         
         if (health <= 0)
         {
             Destroy(transform.gameObject);
-            ItemDrop();
         }
     }
 
@@ -58,35 +58,22 @@ public class MobScript : EntityScript
     {
         if (collision.CompareTag("Player"))
         {
-            joueur.health -= damage;
+            joueur.health = joueur.health - damage;
             Vector2 back = transform.position;
             if(bob.position.x < transform.position.x)
             {
-<<<<<<< HEAD
                 back.x = back.x - 6;
-=======
-                back.x --;
->>>>>>> bf82e1272ce04022dae764c779c8fa4f0be5c7df
             }
 
             else
             {
-<<<<<<< HEAD
                 back.x = back.x + 6 ;
-=======
-                back.x --;
->>>>>>> bf82e1272ce04022dae764c779c8fa4f0be5c7df
             }
 
             transform.position = Vector2.MoveTowards(transform.position, back , speed * Time.deltaTime);
             StartCoroutine(Waitfor());
         }
  
-    }
-
-    private void ItemDrop()
-    {
-        Instantiate(itemsDropped, transform.position, quaternion.identity);
     }
 
     IEnumerator Waitfor()
