@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +18,7 @@ public class QuestManager : MonoBehaviour
     public UnityEngine.Object CompleteType; //Objet visant à compléter la quête avec son type (mauvaise ou bonne)
     public UnityEngine.Object CompleteOpposedType; //Objet visant à compléter la quête avec son type opposé (mauvaise ou bonne)
 
+
     
     private void Awake()
     {
@@ -30,8 +29,8 @@ public class QuestManager : MonoBehaviour
             return;
         }
         instance = this;
-        LogoValidate.active = false;
-        Logo.active = true;
+        LogoValidate.SetActive(false);
+        Logo.SetActive(true);
         CompleteOpposedType = null; // Pour la premiére soutenance
     }
 
@@ -41,16 +40,15 @@ public class QuestManager : MonoBehaviour
         ActualQuest.QuestStatus = Quest.Status.ASSIGNED; //Status de la quête -> Assigner
         Name.text = ActualQuest.QuestName; //Afficher nom de la quête
         Description.text = ActualQuest.QuestDescription; //Afficher description de la quête
-        Logo.active = true;
+        Logo.SetActive(true);
         QuestPanel.SetBool("isOpen",true); //Ouverture du panel
-        return;
     }
 
     public void FinishAQuestType()
     {
         ActualQuest.QuestStatus = Quest.Status.FINISHED; //Status de la quête -> Fini
-        Logo.active = false;
-        LogoValidate.active = true;
+        Logo.SetActive(false);
+        LogoValidate.SetActive(true);
         QuestPanel.SetBool("isOpen",false); //Fermeture Panel
         //Next soutenance : Player points
         return;
@@ -58,7 +56,7 @@ public class QuestManager : MonoBehaviour
 
     public void Update()
     {
-        if (ActualQuest.QuestStatus == Quest.Status.ASSIGNED & CompleteType == null)
+        if (!(ActualQuest is null) && ActualQuest.QuestStatus == Quest.Status.ASSIGNED && CompleteType == null)
         {
             FinishAQuestType();
         }

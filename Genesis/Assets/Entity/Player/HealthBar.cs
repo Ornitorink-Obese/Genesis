@@ -7,12 +7,17 @@ public class HealthBar : MonoBehaviour
     public Gradient gradient;
     public Image fill;
 
-    public void SetMaxHealth(int health)
+    public static HealthBar instance;
+    
+    private void Awake()
     {
-        slider.maxValue = health;
-        slider.value = health;
+        if (instance != null)
+        {
+            Debug.Log("il y a plus d'une instance de HealthBar");
+            return;
+        }
 
-        fill.color = gradient.Evaluate(1f);
+        instance = this;
     }
 
     public void SetHealth(int health)
