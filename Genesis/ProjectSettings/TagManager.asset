@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TP load
+  - Canvas
+  - Description
+  - Logo
+  - Logo validate
+  - Name
+  - Quest Panel
+  - PlayerInRangeTxt
   layers:
   - Default
   - TransparentFX

@@ -15,11 +15,10 @@ public class QuestManager : MonoBehaviour
 
     
 
-    public UnityEngine.Object CompleteType; //Objet visant à compléter la quête avec son type (mauvaise ou bonne)
-    public UnityEngine.Object CompleteOpposedType; //Objet visant à compléter la quête avec son type opposé (mauvaise ou bonne)
+    public Object CompleteType; //Objet visant à compléter la quête avec son type (mauvaise ou bonne)
+    public Object CompleteOpposedType; //Objet visant à compléter la quête avec son type opposé (mauvaise ou bonne)
 
 
-    
     private void Awake()
     {
         // UNICITE DU QUÊTE : UN SEUL A LA FOIS DANS LA SCENE
@@ -29,6 +28,13 @@ public class QuestManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        Name = GameObject.FindGameObjectWithTag("Name").GetComponent<Text>();
+        Description = GameObject.FindGameObjectWithTag("Description").GetComponent<Text>();
+        Logo = GameObject.FindGameObjectWithTag("Logo");
+        LogoValidate = GameObject.FindGameObjectWithTag("Logo validate");
+        QuestPanel = GameObject.FindGameObjectWithTag("Quest Panel").GetComponent<Animator>();
+        
         LogoValidate.SetActive(false);
         Logo.SetActive(true);
         CompleteOpposedType = null; // Pour la premiére soutenance

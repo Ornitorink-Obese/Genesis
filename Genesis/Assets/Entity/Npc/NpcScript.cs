@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class NpcScript : EntityScript
@@ -26,6 +23,7 @@ public class NpcScript : EntityScript
     void Start()
     {
         i = 0;
+        PlayerInRangeText = GameObject.FindGameObjectWithTag("PlayerInRangeTxt").GetComponent<Text>();
     }
 
     // Update is called once per frame
