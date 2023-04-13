@@ -12,7 +12,9 @@ public class NpcScript : EntityScript
     public bool PlayerInRange;
     public Text PlayerInRangeText;
 
-    public Dialogue NPCDialogue;
+    public Dialogue[] NPCDialogue;
+    public string[] Dialogue_Choices;
+    public int Dialogue_Part;
     public Vector2[] points;
 
     public Quest NPCQuest;
@@ -31,17 +33,16 @@ public class NpcScript : EntityScript
     {
         if (PlayerInRange)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && Dialogue_Part == 0)
             {
                 PlayerInRangeText.enabled = false;
-                StartDialogue();
+                GetChoice();
             }
 
-            if (Input.GetKeyDown(KeyCode.Return))
+            if (Input.GetKeyDown(KeyCode.Return) && Dialogue_Part != 0)
             {
                 PlayerInRangeText.enabled = false;
                 ContinueDialogue();
-                //DEBUG = true;
             }
         }
         else
@@ -83,6 +84,17 @@ public class NpcScript : EntityScript
         }
     }
 
+    private void GetChoice()
+    {
+        ChoicesManager.instance.StartChoices(this);
+    }
+
+    public void EndChoice(int change)
+    {
+        Dialogue_Part = change;
+        ChoicesManager.instance.FinishChoices();
+        StartDialogue();
+    }
     private void GoToNextPoint()
     {
         Vector2 actual_pos = NPCBody.position;
