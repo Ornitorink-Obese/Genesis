@@ -12,6 +12,12 @@ TagManager:
   - Name
   - Quest Panel
   - PlayerInRangeTxt
+  - Name Choices
+  - Texte Choices
+  - Choice 1
+  - Choice 2
+  - Choice 3
+  - Choice Panel
   layers:
   - Default
   - TransparentFX

@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5311054605400807684}
   m_Layer: 5
   m_Name: Txt
-  m_TagString: Untagged
+  m_TagString: Texte Choices
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,7 +308,7 @@ GameObject:
   - component: {fileID: 1901119367736242279}
   m_Layer: 5
   m_Name: Dialogue_Choice
-  m_TagString: Untagged
+  m_TagString: Choice Panel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2168,7 +2168,7 @@ GameObject:
   - component: {fileID: 7290874257776953621}
   m_Layer: 5
   m_Name: NPC NAME
-  m_TagString: Untagged
+  m_TagString: Name Choices
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2249,7 +2249,7 @@ GameObject:
   - component: {fileID: 1589286618162017604}
   m_Layer: 5
   m_Name: Choice3
-  m_TagString: Untagged
+  m_TagString: Choice 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3020,7 +3020,7 @@ GameObject:
   - component: {fileID: 4038543597804748442}
   m_Layer: 5
   m_Name: Choice2
-  m_TagString: Untagged
+  m_TagString: Choice 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3235,7 +3235,7 @@ GameObject:
   - component: {fileID: 4125407686740215585}
   m_Layer: 5
   m_Name: Choice1
-  m_TagString: Untagged
+  m_TagString: Choice 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3531,7 +3531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4230275115243078533
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3552,7 +3552,7 @@ RectTransform:
   - {fileID: 5409532243687749026}
   - {fileID: 144838706070604135}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4353,7 +4353,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.01}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.03699875, y: -0.14939976}
   m_SizeDelta: {x: -1.5451, y: -1.4488}
   m_Pivot: {x: 0.5, y: 0.5}
