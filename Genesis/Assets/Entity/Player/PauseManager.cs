@@ -1,10 +1,11 @@
+using Mirror;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject gamePausedPanel;
     private bool GameIsPaused = false;
+    public NetworkManager networkManager;
 
     private void Update()
     {
@@ -34,11 +35,16 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        
+        gamePausedPanel.SetActive(false);
+        Time.timeScale = 1;
+        GameIsPaused = false;
+        networkManager.StopHost();
     }
 
     public void Quit()
     {
+        networkManager.StopHost();
         Application.Quit();
     }
 }

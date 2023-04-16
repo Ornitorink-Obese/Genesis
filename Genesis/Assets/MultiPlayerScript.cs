@@ -22,18 +22,15 @@ public class MultiPlayerScript : MonoBehaviour
     {
         CanvasPanel.SetActive(true);
         networkManager.StartHost();
-        SceneManager.LoadScene(1);
     }
 
     public void Client()
     {
         networkManager.StartClient();
-        SceneManager.LoadScene(1);
     }
 
     public void ChangeIP(string value)
     {
         networkManager.networkAddress = value;
-        SceneManager.LoadScene(1);
     }
 }
