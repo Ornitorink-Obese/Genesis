@@ -9,13 +9,8 @@ public class MobScript : EntityScript
     
     // Start is called before the first frame update
     public int damage;
-<<<<<<< HEAD
-    public Rigidbody2D bob;
-    public PlayerScript joueur;
-=======
     public GameObject itemsDropped;
     public CircleCollider2D weaponCollider;
->>>>>>> 5f7691a41df6253c911801ff6ea759fd81834a46
 
     IEnumerator Wait(int seconds)
     {
@@ -25,10 +20,7 @@ public class MobScript : EntityScript
     void Start()
     {
         atak = true;
-        health = 20;
         enabled = true;
-        damage = 10;
-        speed = 5;
     }
 
 
@@ -45,22 +37,8 @@ public class MobScript : EntityScript
             StartCoroutine(Waitfor());
         }
 
-<<<<<<< HEAD
-        if (mobCollider.IsTouching(player.weaponCollider))
-        {
-            health -= 5;
-            StartCoroutine(Wait(1));
-        }
-
-        IEnumerator Wait(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
-    }
-        
-=======
         if (Input.GetKeyDown(KeyCode.K))
             health = 0;
->>>>>>> 5f7691a41df6253c911801ff6ea759fd81834a46
         if (health <= 0)
         {
             Destroy(transform.gameObject);
@@ -71,14 +49,6 @@ public class MobScript : EntityScript
     {
         if (collision.CompareTag("Player"))
         {
-<<<<<<< HEAD
-            joueur.health = joueur.health - damage;
-            Vector2 back = transform.position;
-            if(bob.position.x < transform.position.x)
-            {
-                back.x = back.x - 6;
-            }
-=======
             if (collision is CapsuleCollider2D)
             {
                 HealthManager.instance.TakeDamage(damage);
@@ -88,7 +58,6 @@ public class MobScript : EntityScript
                     back.x = back.x - 6;
                     back.x--;
                 }
->>>>>>> 5f7691a41df6253c911801ff6ea759fd81834a46
 
                 else
                 {
@@ -101,31 +70,24 @@ public class MobScript : EntityScript
             }
             else if (collision is CircleCollider2D && atak)
             {
-<<<<<<< HEAD
-                back.x = back.x + 6 ;
-=======
                 atak = false;
                 TakeDamage(PlayerScript.instance.damage);
                 StartCoroutine(Wait(2));
                 atak = true;
->>>>>>> 5f7691a41df6253c911801ff6ea759fd81834a46
             }
         }
     }
 
-<<<<<<< HEAD
-=======
-    private void ItemDrop()
-    {
-        Instantiate(itemsDropped, transform.position, quaternion.identity);
-    }
+   // private void ItemDrop()
+   // {
+        //Instantiate(itemsDropped, transform.position, quaternion.identity);
+   // }
     
     public void TakeDamage(int damage)
     {
         health -= damage;
     }
 
->>>>>>> 5f7691a41df6253c911801ff6ea759fd81834a46
     IEnumerator Waitfor()
     {
         yield return new WaitForSecondsRealtime(10);
