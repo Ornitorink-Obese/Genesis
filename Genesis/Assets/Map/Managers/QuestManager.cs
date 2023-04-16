@@ -50,7 +50,7 @@ public class QuestManager : MonoBehaviour
         QuestPanel.SetBool("isOpen",true); //Ouverture du panel
     }
 
-    public void FinishAQuestType()
+    public void FinishAQuest(Quest.Type type)
     {
         ActualQuest.QuestStatus = Quest.Status.FINISHED; //Status de la quête -> Fini
         Logo.SetActive(false);
@@ -64,7 +64,7 @@ public class QuestManager : MonoBehaviour
     {
         if (!(ActualQuest is null) && ActualQuest.QuestStatus == Quest.Status.ASSIGNED && CompleteType == null)
         {
-            FinishAQuestType();
+            //FinishAQuestType();
         }
     }
 
