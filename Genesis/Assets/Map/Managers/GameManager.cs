@@ -13,8 +13,8 @@ public class PointSystem : MonoBehaviour
 {
     public static PointSystem instance;
     
-    private int _goodPoints = 0;
-    private int _badPoints = 0;
+    private int _goodPoints;
+    private int _badPoints;
 
     public enum FavorType
     {
@@ -74,6 +74,7 @@ public class PointSystem : MonoBehaviour
             throw new InvalidQuestType("Actual quest is neither good nor bad");
         }
 
+        PointsManager.instance.changePoints(_goodPoints, _badPoints);
         Favor = IsGood();
     }
     
@@ -82,7 +83,7 @@ public class PointSystem : MonoBehaviour
     {
         Favor = FavorType.BALANCED;
         instance = this;
-        _goodPoints = 0;
-        _badPoints = 0; 
+        _goodPoints = 1;
+        _badPoints = 1; 
     }
 }
