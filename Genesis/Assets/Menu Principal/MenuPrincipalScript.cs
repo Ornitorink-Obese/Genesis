@@ -1,4 +1,5 @@
 using System;
+using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,10 +7,13 @@ public class MenuPrincipalScript : MonoBehaviour
 {
     public GameObject SettingsPanel;
     public GameObject MultiPlayerPanel;
-
+    public GameObject healthbar;
+    public NetworkManager networkManager;
+    
     public void Play()
     {
-        SceneManager.LoadScene("1erSoutenance");
+        healthbar.SetActive(true);
+        networkManager.StartHost();
     }
 
     public void MultiPlayer()

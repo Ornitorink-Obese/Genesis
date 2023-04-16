@@ -8,7 +8,6 @@ public class ObjectController : MonoBehaviour
     {
         if (player.CompareTag("Player"))
         {
-            Debug.Log("Player collision");
             if (controlable.activeSelf)
             {
                 controlable.SetActive(false);
