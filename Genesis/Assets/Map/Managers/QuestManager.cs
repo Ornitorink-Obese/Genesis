@@ -57,7 +57,7 @@ public class QuestManager : MonoBehaviour
         Logo.SetActive(false);
         LogoValidate.SetActive(true);
         QuestPanel.SetBool("isOpen",false); //Fermeture Panel
-        GameManager.instance.EndQuest(ActualQuest, 1); // Changer le nombre de points en fonction de la quête (ajouter un attribut à Quest)
+        PointSystem.instance.EndQuest(ActualQuest, 1); // Changer le nombre de points en fonction de la quête (ajouter un attribut à Quest)
         return;
     }
 

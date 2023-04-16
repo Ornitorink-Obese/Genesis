@@ -9,9 +9,9 @@ public class InvalidPointNumber : Exception
     public InvalidPointNumber(string message) : base(message) { }
 }
 
-public class GameManager : MonoBehaviour
+public class PointSystem : MonoBehaviour
 {
-    public static GameManager instance;
+    public static PointSystem instance;
     
     private int _goodPoints = 0;
     private int _badPoints = 0;
