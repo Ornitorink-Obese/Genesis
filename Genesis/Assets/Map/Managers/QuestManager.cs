@@ -63,7 +63,7 @@ public class QuestManager : MonoBehaviour
             PointSystem.instance.AddBadPoints(1);
         }
         
-        if (type == ActualQuest.Type)
+        if (type == ActualQuest.QuestType)
         {
             FinishSame();
         }

@@ -45,7 +45,7 @@ public class PointSystem : MonoBehaviour
         return FavorType.BAD;
     }
     
-    private void AddGoodPoints(int points)
+    public void AddGoodPoints(int points)
     {
         if (points < 0)
             throw new InvalidPointNumber("negative value for number of points to add");
@@ -54,7 +54,7 @@ public class PointSystem : MonoBehaviour
         Favor = IsGood();
     }
     
-    private void AddBadPoints(int points)
+    public void AddBadPoints(int points)
     {
         if (points < 0)
             throw new InvalidPointNumber("negative value for number of points to add");
