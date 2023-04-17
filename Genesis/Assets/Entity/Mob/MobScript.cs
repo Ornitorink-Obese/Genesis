@@ -66,7 +66,7 @@ public class MobScript : EntityScript
             {
                 HealthManager.instance.TakeDamage(damage);
                 Vector2 back = transform.position;
-                if (PlayerScript.instance.GetComponent<Rigidbody2D>().position.x < transform.position.x)
+                if (target.position.x < transform.position.x)
                 {
                     back.x = back.x - 6;
                     back.x--;
