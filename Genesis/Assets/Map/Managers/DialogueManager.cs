@@ -6,9 +6,9 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
     private Queue<string> dialogue;
-    public  Text Name;
-    public Text Texte;
-    public Animator panel;
+    public Text Name_Dialogue;
+    public Text Texte_Dialogue;
+    public Animator dialogue_panel;
     private void Awake()
     {
         // UNICITE DU DIALOGUE : UN SEUL A LA FOIS DANS LA SCENE
@@ -23,37 +23,37 @@ public class DialogueManager : MonoBehaviour
 
     public void StartADialogue(NpcScript npc)
     {
-        Name.text = npc.NPCName; //Apparition nom du NPC
-		panel.SetBool("isOpen",true); //Apparition du Panel de texte
+        dialogue_panel.SetBool("isOpen", true); //Apparition du Panel de texte
         dialogue.Clear(); //Au cas où l'ancien dialogue n'a pas vider la file
-        foreach (string texteframe in npc.NPCDialogue.texte)
+        foreach (string texteframe in npc.NPCDialogue[npc.Dialogue_Part].texte)
         {
+            Debug.Log(texteframe);
             dialogue.Enqueue(texteframe); //REMPLI LES PARTIES DU DIALOGUE SOUS FORME DE FILES
         }
-
+        Name_Dialogue.text = npc.NPCName;
         ContinueADialogue();
     }
 
     public bool ContinueADialogue()
     {
+        Debug.Log(dialogue.Count);
         if (dialogue.Count == 0)
         {
-			panel.SetBool("isOpen",false); //Masque le panel de dialogue
+			dialogue_panel.SetBool("isOpen",false); //Masque le panel de dialogue
             return true;
         }
-
         string text = dialogue.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(text)); 
+        StartCoroutine(TypeSentence(text));
         return false;
     }
     
     IEnumerator TypeSentence(string sentence) //Ecrire le texte lettre par lettre
     {
-        Texte.text = "";
+        Texte_Dialogue.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
-            Texte.text += letter;
+            Texte_Dialogue.text += letter;
             yield return null;
         }
     }

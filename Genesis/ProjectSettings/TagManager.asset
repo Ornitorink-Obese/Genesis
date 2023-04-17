@@ -3,7 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - TP load
+  - Canvas
+  - Description
+  - Logo
+  - Logo validate
+  - Name
+  - Quest Panel
+  - PlayerInRangeTxt
+  - Name Choices
+  - Texte Choices
+  - Choice 1
+  - Choice 2
+  - Choice 3
+  - Choice Panel
   layers:
   - Default
   - TransparentFX
@@ -11,8 +25,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Portal
   - 
   - 
   - 

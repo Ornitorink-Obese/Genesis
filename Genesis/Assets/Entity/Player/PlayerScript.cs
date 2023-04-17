@@ -7,7 +7,6 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D body;
     public Collider2D playerCollider;
     public Collider2D weaponCollider;
-    public Camera cam;
 
     public int speed;
     public int damage;
@@ -25,6 +24,7 @@ public class PlayerScript : MonoBehaviour
         }
         
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     
     void Start()

@@ -1,5 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+
+public class InvalidQuestType : Exception
+{
+    public InvalidQuestType() { }
+    public InvalidQuestType(string message) : base(message) { }
+}
 
 public class QuestManager : MonoBehaviour
 {
@@ -14,52 +21,68 @@ public class QuestManager : MonoBehaviour
     public GameObject LogoValidate;
 
     
-
-    public UnityEngine.Object CompleteType; //Objet visant à compléter la quête avec son type (mauvaise ou bonne)
-    public UnityEngine.Object CompleteOpposedType; //Objet visant à compléter la quête avec son type opposé (mauvaise ou bonne)
-
-
-    
     private void Awake()
     {
-        // UNICITE DU QUÊTE : UN SEUL A LA FOIS DANS LA SCENE
+        // UNICITE DES QUÊTES : UNE SEULE A LA FOIS DANS LA SCENE
         if(instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de DialogueManager dans la scène");
+            Debug.LogWarning("Il y a plus d'une instance de QuestManager dans la scène");
             return;
         }
         instance = this;
+
+        Name = GameObject.FindGameObjectWithTag("Name").GetComponent<Text>();
+        Description = GameObject.FindGameObjectWithTag("Description").GetComponent<Text>();
+        Logo = GameObject.FindGameObjectWithTag("Logo");
+        LogoValidate = GameObject.FindGameObjectWithTag("Logo validate");
+        QuestPanel = GameObject.FindGameObjectWithTag("Quest Panel").GetComponent<Animator>();
+        
         LogoValidate.SetActive(false);
         Logo.SetActive(true);
-        CompleteOpposedType = null; // Pour la premiére soutenance
     }
 
     public void StartAQuest(Quest quest)
     {
         ActualQuest = quest; 
-        ActualQuest.QuestStatus = Quest.Status.ASSIGNED; //Status de la quête -> Assigner
+        ActualQuest.QuestStatus = Quest.Status.ASSIGNED; //Status de la quête -> Assignée
         Name.text = ActualQuest.QuestName; //Afficher nom de la quête
         Description.text = ActualQuest.QuestDescription; //Afficher description de la quête
         Logo.SetActive(true);
         QuestPanel.SetBool("isOpen",true); //Ouverture du panel
     }
 
-    public void FinishAQuestType()
+    public void FinishAQuest(Quest.Type type)
     {
-        ActualQuest.QuestStatus = Quest.Status.FINISHED; //Status de la quête -> Fini
-        Logo.SetActive(false);
-        LogoValidate.SetActive(true);
+        ActualQuest.QuestStatus = Quest.Status.FINISHED; //Status de la quête -> Finie
+        if (type == Quest.Type.GOOD)
+        {
+            PointSystem.instance.AddGoodPoints(1);
+        }
+        if (type == Quest.Type.BAD)
+        {
+            PointSystem.instance.AddBadPoints(1);
+        }
+        
+        if (type == ActualQuest.Type)
+        {
+            FinishSame();
+        }
+        else
+        {
+            FinishNotSame();
+        }
         QuestPanel.SetBool("isOpen",false); //Fermeture Panel
-        //Next soutenance : Player points
         return;
     }
+    
 
-    public void Update()
+    private void FinishSame() //Gestion UI
     {
-        if (!(ActualQuest is null) && ActualQuest.QuestStatus == Quest.Status.ASSIGNED && CompleteType == null)
-        {
-            FinishAQuestType();
-        }
+        
+    }
+    private void FinishNotSame() //Gestion UI
+    {
+        
     }
 
 }

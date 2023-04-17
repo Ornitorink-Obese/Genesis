@@ -1,53 +1,78 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class NpcScript : EntityScript
 {
+    public bool DEBUG;
+    // -------------------------- CARACTERISTIQUES ----------------- //
     public string NPCName;
     public Rigidbody2D NPCBody;
     public bool PlayerInRange;
     public Text PlayerInRangeText;
-
-    public Dialogue NPCDialogue;
+    public Dialogue[] NPCDialogue; 
+    // First : Dialogue Panel Choice
+    // Second : First Dialogue
+    // Third : Second Dialogue
+    // Fourth : Third Dialogue
+    // Fifth : Final Good
+    // Sixth : Final Bad
+    public string[] Dialogue_Choices;
+    // 3 differents choices
+    public int Dialogue_Part;
     public Vector2[] points;
+    // Facultatif : si le PNJ doit se déplacer. Est utilisé pour déplacer le PNJ à son point final
 
+    public Vector2 final_point;
+
+    
+    // ------------------------- QUEST ------------------------- //
     public Quest NPCQuest;
     private int i;
+    
 
-    public bool DEBUG;
-
-    // Start is called before the first frame update
     void Start()
     {
         i = 0;
+        PlayerInRangeText = GameObject.FindGameObjectWithTag("PlayerInRangeTxt").GetComponent<Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (PlayerInRange)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            // Get choice of player
+            if (Input.GetKeyDown(KeyCode.E) && Dialogue_Part == 0)
             {
                 PlayerInRangeText.enabled = false;
-                StartDialogue();
+                GetChoice();
             }
-
-            if (Input.GetKeyDown(KeyCode.Return))
+            // Continue Dialogue if don't finished
+            if (Input.GetKeyDown(KeyCode.Return) && Dialogue_Part != 0)
             {
                 PlayerInRangeText.enabled = false;
                 ContinueDialogue();
-                //DEBUG = true;
+            }
+            
+            // Quest already finished
+            if (Input.GetKeyDown(KeyCode.E) && NPCQuest.Status == Quest.Status.FINISHED)
+            {
+                if (NPCQuest.QuestType == Quest.Type.GOOD)
+                {
+                    Dialogue_Part = 4;
+                    DialogueManager.instance.StartADialogue(this);
+                }
+                else
+                {
+                    Dialogue_Part = 5;
+                    DialogueManager.instance.StartADialogue(this);
+                }
             }
         }
         else
         {
 			PlayerInRangeText.enabled = false;
-            GoToNextPoint();
+            GoToNextPoint(); //Facultatif : Deplacement prochain point
         }
     }
 
@@ -80,20 +105,35 @@ public class NpcScript : EntityScript
         if (DialogueManager.instance.ContinueADialogue())
         {
             QuestManager.instance.StartAQuest(this.NPCQuest);
+            points = new Vector2[] { final_point };
         }
     }
 
+    private void GetChoice()
+    {
+        ChoicesManager.instance.StartChoices(this);
+    }
+
+    public void EndChoice(int change)
+    {
+        Dialogue_Part = change;
+        ChoicesManager.instance.FinishChoices();
+        StartDialogue();
+    }
     private void GoToNextPoint()
     {
         Vector2 actual_pos = NPCBody.position;
-        if (Math.Round(NPCBody.position.x) != points[i].x || Math.Round(NPCBody.position.y) != points[i].y)
+        if (i < points.Length)
         {
-            transform.position = Vector2.MoveTowards(transform.position, points[i], Time.deltaTime * speed);
-        }
-        else
-        {
-            
-            i = (i + 1)%points.Length;
+            if (Math.Round(NPCBody.position.x) != points[i].x || Math.Round(NPCBody.position.y) != points[i].y)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, points[i], Time.deltaTime * speed);
+            }
+            else
+            {
+
+                i = (i + 1) % points.Length;
+            }
         }
     }
 }
