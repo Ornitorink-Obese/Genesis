@@ -19,20 +19,14 @@ public class QuestManager : MonoBehaviour
     public Text Description;
     public GameObject Logo;
     public GameObject LogoValidate;
-    //public GameManager Game;
-    
 
-    public UnityEngine.Object CompleteType; //Objet visant à compléter la quête avec son type (mauvais ou bon)
-    public UnityEngine.Object CompleteOpposedType; //Objet visant à compléter la quête avec son type opposé (mauvais ou bon)
-
-    
     
     private void Awake()
     {
         // UNICITE DES QUÊTES : UNE SEULE A LA FOIS DANS LA SCENE
         if(instance != null)
         {
-            Debug.LogWarning("Il y a plus d'une instance de DialogueManager dans la scène");
+            Debug.LogWarning("Il y a plus d'une instance de QuestManager dans la scène");
             return;
         }
         instance = this;
@@ -45,7 +39,6 @@ public class QuestManager : MonoBehaviour
         
         LogoValidate.SetActive(false);
         Logo.SetActive(true);
-        CompleteOpposedType = null; // Pour la première soutenance
     }
 
     public void StartAQuest(Quest quest)
@@ -61,19 +54,35 @@ public class QuestManager : MonoBehaviour
     public void FinishAQuest(Quest.Type type)
     {
         ActualQuest.QuestStatus = Quest.Status.FINISHED; //Status de la quête -> Finie
-        Logo.SetActive(false);
-        LogoValidate.SetActive(true);
+        if (type == Quest.Type.GOOD)
+        {
+            PointSystem.instance.AddGoodPoints(1);
+        }
+        if (type == Quest.Type.BAD)
+        {
+            PointSystem.instance.AddBadPoints(1);
+        }
+        
+        if (type == ActualQuest.Type)
+        {
+            FinishSame();
+        }
+        else
+        {
+            FinishNotSame();
+        }
         QuestPanel.SetBool("isOpen",false); //Fermeture Panel
-        PointSystem.instance.EndQuest(ActualQuest, 1); // Changer le nombre de points en fonction de la quête (ajouter un attribut à Quest)
         return;
     }
+    
 
-    public void Update()
+    private void FinishSame() //Gestion UI
     {
-        if (!(ActualQuest is null) && ActualQuest.QuestStatus == Quest.Status.ASSIGNED && CompleteType == null)
-        {
-            //FinishAQuestType();
-        }
+        
+    }
+    private void FinishNotSame() //Gestion UI
+    {
+        
     }
 
 }

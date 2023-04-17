@@ -55,7 +55,7 @@ public class NpcScript : EntityScript
             }
             
             // Quest already finished
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && NPCQuest.Status == Quest.Status.FINISHED)
             {
                 if (NPCQuest.QuestType == Quest.Type.GOOD)
                 {

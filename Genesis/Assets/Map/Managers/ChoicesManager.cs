@@ -12,7 +12,6 @@ public class ChoicesManager : MonoBehaviour
     public Text choice2;
     public Text choice3;
     public Animator choice_panel;
-    // Start is called before the first frame update
     private void Awake()
     {
         // UNICITE DU PANEL : UN SEUL A LA FOIS DANS LA SCENE

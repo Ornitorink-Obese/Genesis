@@ -50,6 +50,8 @@ public class PointSystem : MonoBehaviour
         if (points < 0)
             throw new InvalidPointNumber("negative value for number of points to add");
         _goodPoints += points;
+        PointsManager.instance.changePoints(_goodPoints, _badPoints);
+        Favor = IsGood();
     }
     
     private void AddBadPoints(int points)
@@ -57,26 +59,11 @@ public class PointSystem : MonoBehaviour
         if (points < 0)
             throw new InvalidPointNumber("negative value for number of points to add");
         _badPoints += points;
-    }
-    
-    public void EndQuest(Quest quest, int pointNumber)
-    {
-        if (quest.QuestType == Quest.Type.GOOD)
-        {
-            AddGoodPoints(pointNumber);
-        }
-        else if (quest.QuestType == Quest.Type.BAD)
-        {
-            AddBadPoints(pointNumber);
-        }
-        else
-        {
-            throw new InvalidQuestType("Actual quest is neither good nor bad");
-        }
-
         PointsManager.instance.changePoints(_goodPoints, _badPoints);
         Favor = IsGood();
     }
+    
+
     
     // Awake is called when an enabled script instance is being loaded
     public void Awake()
