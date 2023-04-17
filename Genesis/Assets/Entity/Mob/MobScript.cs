@@ -11,6 +11,9 @@ public class MobScript : EntityScript
     public int damage;
     public GameObject itemsDropped;
     public CircleCollider2D weaponCollider;
+    public BoxCollider2D detection;
+    public Rigidbody2D target;
+    public bool havetarget;
 
     IEnumerator Wait(int seconds)
     {
@@ -21,18 +24,19 @@ public class MobScript : EntityScript
     {
         atak = true;
         enabled = true;
+        target = null;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position,PlayerScript.instance.GetComponent<Rigidbody2D>().position) < 5.0f)
+        if (havetarget)
         {
-            transform.position = Vector2.MoveTowards(transform.position, PlayerScript.instance.GetComponent<Rigidbody2D>().position , speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, target.position , speed * Time.deltaTime);
         }
 
-        if (PlayerScript.instance.playerCollider.IsTouching(mobCollider))
+        if(target.IsTouching(mobCollider) )
         {
             StartCoroutine(Waitfor());
         }
@@ -45,10 +49,19 @@ public class MobScript : EntityScript
         }
     }
 
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
+
+            if (collision is BoxCollider2D && havetarget == false)
+            {
+                target = collision.gameObject.GetComponent<Rigidbody2D>();
+                havetarget = true;
+            }
+
             if (collision is CapsuleCollider2D)
             {
                 HealthManager.instance.TakeDamage(damage);
@@ -78,10 +91,10 @@ public class MobScript : EntityScript
         }
     }
 
-   // private void ItemDrop()
-   // {
-        //Instantiate(itemsDropped, transform.position, quaternion.identity);
-   // }
+    //private void ItemDrop()
+    //{
+       // Instantiate(itemsDropped, transform.position, quaternion.identity);
+    //}
     
     public void TakeDamage(int damage)
     {
