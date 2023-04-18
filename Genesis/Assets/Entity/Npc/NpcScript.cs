@@ -116,6 +116,7 @@ public class NpcScript : EntityScript
 
     public void EndChoice(int change)
     {
+        Debug.Log(change);
         Dialogue_Part = change;
         ChoicesManager.instance.FinishChoices();
         StartDialogue();
