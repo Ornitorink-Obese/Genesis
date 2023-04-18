@@ -757,7 +757,7 @@ RectTransform:
   - {fileID: 1814476552583728552}
   - {fileID: 1216914466758419713}
   m_Father: {fileID: 0}
-  m_RootOrder: 33
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2229,7 +2229,7 @@ GameObject:
   - component: {fileID: 7456671908360258890}
   m_Layer: 5
   m_Name: QuestDescription
-  m_TagString: Untagged
+  m_TagString: Description
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
