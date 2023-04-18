@@ -12,6 +12,7 @@ public class PlayerScript : MonoBehaviour
     public int damage;
     private bool canAttack;
     private Vector3 offset;
+    public Animator animator;
 
     public static PlayerScript instance;
     

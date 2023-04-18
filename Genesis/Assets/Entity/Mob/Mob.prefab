@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 6711457010853266510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.38, y: 0.39, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.32, y: 5.32, z: 26.6}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8002670169259778797
 SpriteRenderer:
@@ -119,8 +119,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0.5}
-  m_Size: {x: 0.48, y: 0.48}
+  m_Offset: {x: -0.0067210733, y: -0.040159676}
+  m_Size: {x: 0.31023562, y: 0.43884543}
   m_Direction: 0
 --- !u!114 &3089725789200517937
 MonoBehaviour:
@@ -142,6 +142,9 @@ MonoBehaviour:
   damage: 0
   itemsDropped: {fileID: 4586546832270470595, guid: 306189f00285a39449906094d979fb64, type: 3}
   weaponCollider: {fileID: 0}
+  detection: {fileID: 0}
+  target: {fileID: 0}
+  havetarget: 0
 --- !u!95 &8887406493890586442
 Animator:
   serializedVersion: 5
@@ -162,4 +165,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

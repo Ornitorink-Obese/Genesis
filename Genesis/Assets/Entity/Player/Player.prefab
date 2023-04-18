@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: 8144694141758727220}
   - component: {fileID: 4653328241794525272}
   - component: {fileID: 8774030011448405347}
-  - component: {fileID: 7300340675473814055}
   - component: {fileID: 3029870346782875213}
   - component: {fileID: 7081141185798542491}
   m_Layer: 0
@@ -206,10 +205,9 @@ MonoBehaviour:
   body: {fileID: 2903931291924586712}
   playerCollider: {fileID: 1621685862668181047}
   weaponCollider: {fileID: 5936592027072175565}
-  cam: {fileID: 3613551024311529926}
-  animator: {fileID: 7081141185798542491}
   speed: 0
   damage: 0
+  animator: {fileID: 7081141185798542491}
 --- !u!114 &4653328241794525272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,26 +238,6 @@ MonoBehaviour:
   serverOnly: 0
   visible: 0
   hasSpawned: 0
---- !u!114 &7300340675473814055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1498202095266529119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 093000cc79cd0ab4daeb394740c8f6fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0.1
-  componentsToDisable:
-  - {fileID: 8144694141758727220}
-  - {fileID: 4653328241794525272}
-  - {fileID: 3613551024311529926}
-  - {fileID: 7706428601936478798, guid: 2085cbdf818dfb2478c861c8634247f8, type: 3}
 --- !u!114 &3029870346782875213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +287,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8581382497663817394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -375,11 +352,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2085cbdf818dfb2478c861c8634247f8, type: 3}
---- !u!20 &3613551024311529926 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 4986285680835946356, guid: 2085cbdf818dfb2478c861c8634247f8, type: 3}
-  m_PrefabInstance: {fileID: 8581382497663817394}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6604029239767107756 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3220364488991383070, guid: 2085cbdf818dfb2478c861c8634247f8, type: 3}

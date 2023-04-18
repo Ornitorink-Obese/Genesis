@@ -16,7 +16,7 @@ public class IPManager : MonoBehaviour
             if (address.AddressFamily == AddressFamily.InterNetwork)
             {
                 localAddress = address.ToString();
-                ipTxt.text = localAddress;
+                ipTxt.text = $"IP : {localAddress}";
                 break;
             }
         }
