@@ -1,10 +1,13 @@
 using System.Collections;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MobScript : EntityScript
 {
     public CapsuleCollider2D mobCollider;
+    public Animator animator;
+    
     public bool atak;
     
     public int damage;
@@ -23,6 +26,7 @@ public class MobScript : EntityScript
         enabled = true;
         damage = 10;
         speed = 5;
+        //animator = GetComponent<Animator>();
     }
 
 
@@ -31,6 +35,11 @@ public class MobScript : EntityScript
         if (Vector2.Distance(transform.position,PlayerScript.instance.GetComponent<Rigidbody2D>().position) < 5.0f)
         {
             transform.position = Vector2.MoveTowards(transform.position, PlayerScript.instance.GetComponent<Rigidbody2D>().position , speed * Time.deltaTime);
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
 
         if (PlayerScript.instance.playerCollider.IsTouching(mobCollider))

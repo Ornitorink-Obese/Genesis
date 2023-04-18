@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8002670169259778797}
   - component: {fileID: 112586186044485200}
   - component: {fileID: 3089725789200517937}
+  - component: {fileID: 8887406493890586442}
   m_Layer: 0
   m_Name: Mob
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6711457010853266510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.38, y: 0.39, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,7 +119,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.5, y: 0.5}
   m_Size: {x: 0.48, y: 0.48}
   m_Direction: 0
 --- !u!114 &3089725789200517937
@@ -136,8 +137,29 @@ MonoBehaviour:
   speed: 0
   health: 0
   mobCollider: {fileID: 112586186044485200}
-  player: {fileID: 361285418303765580, guid: 8c7a050741c17914094fa12d1c22d052, type: 3}
+  animator: {fileID: 8887406493890586442}
+  atak: 0
   damage: 0
-  bob: {fileID: 0}
-  joueur: {fileID: 0}
   itemsDropped: {fileID: 4586546832270470595, guid: 306189f00285a39449906094d979fb64, type: 3}
+  weaponCollider: {fileID: 0}
+--- !u!95 &8887406493890586442
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6711457010853266510}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74beea9cb0636694c82e9d80cfc6f20e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

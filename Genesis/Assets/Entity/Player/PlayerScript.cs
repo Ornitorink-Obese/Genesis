@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Collider2D playerCollider;
     public Collider2D weaponCollider;
     public Camera cam;
+    public Animator animator;
 
     public int speed;
     public int damage;
@@ -66,7 +67,9 @@ public class PlayerScript : MonoBehaviour
         weaponCollider.enabled = true;
         // deals damage to mob
         canAttack = false;
+        animator.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(1);
+        animator.SetBool("IsAttacking", false);
         weaponCollider.enabled = false;
         canAttack = true;
     }
