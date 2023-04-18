@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool ContinueADialogue()
     {
-        Debug.Log(dialogue.Count);
+        //Debug.Log(dialogue.Count);
         if (dialogue.Count == 0)
         {
 			dialogue_panel.SetBool("isOpen",false); //Masque le panel de dialogue
