@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MobScript : EntityScript
 {
     public CapsuleCollider2D mobCollider;
+    public Animator animator;
+    
     public bool atak;
     
     // Start is called before the first frame update
@@ -34,6 +38,12 @@ public class MobScript : EntityScript
         if (havetarget)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.position , speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, PlayerScript.instance.GetComponent<Rigidbody2D>().position , speed * Time.deltaTime);
+            animator.SetBool("IsMoving", true);
+        }
+        else
+        {
+            animator.SetBool("IsMoving", false);
         }
 
         if(target.IsTouching(mobCollider) )

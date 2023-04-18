@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8774030011448405347}
   - component: {fileID: 7300340675473814055}
   - component: {fileID: 3029870346782875213}
+  - component: {fileID: 7081141185798542491}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -34,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 1498202095266529119}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.087568, y: 2.8496819, z: 0.8324778}
+  m_LocalScale: {x: 8, y: 8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6604029239767107756}
@@ -153,7 +154,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.017448304, y: -0.022037925}
-  m_Size: {x: 0.51489663, y: 0.77873576}
+  m_Size: {x: 0.1, y: 0.2}
   m_Direction: 0
 --- !u!58 &5936592027072175565
 CircleCollider2D:
@@ -206,6 +207,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1621685862668181047}
   weaponCollider: {fileID: 5936592027072175565}
   cam: {fileID: 3613551024311529926}
+  animator: {fileID: 7081141185798542491}
   speed: 0
   damage: 0
 --- !u!114 &4653328241794525272
@@ -287,6 +289,27 @@ MonoBehaviour:
   compressRotation: 0
   positionPrecision: 0.01
   scalePrecision: 0.01
+--- !u!95 &7081141185798542491
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498202095266529119}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c179abd8b49ea504d98cb7bf2b0bb4b5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &8581382497663817394
 PrefabInstance:
   m_ObjectHideFlags: 0

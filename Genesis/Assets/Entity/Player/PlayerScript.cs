@@ -66,7 +66,9 @@ public class PlayerScript : MonoBehaviour
         weaponCollider.enabled = true;
         // deals damage to mob
         canAttack = false;
+        animator.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(1);
+        animator.SetBool("IsAttacking", false);
         weaponCollider.enabled = false;
         canAttack = true;
     }
