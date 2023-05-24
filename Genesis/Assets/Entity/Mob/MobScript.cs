@@ -101,7 +101,7 @@ public class MobScript : EntityScript
         health -= damage;
     }
 
-    IEnumerator Waitfor()
+    public IEnumerator Waitfor()
     {
         yield return new WaitForSecondsRealtime(10);
     }
