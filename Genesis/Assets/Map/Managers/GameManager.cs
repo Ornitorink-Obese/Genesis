@@ -3,11 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InvalidPointNumber : Exception
-{
-    public InvalidPointNumber() { }
-    public InvalidPointNumber(string message) : base(message) { }
-}
 
 public class PointSystem : MonoBehaviour
 {
@@ -45,19 +40,19 @@ public class PointSystem : MonoBehaviour
         return FavorType.BAD;
     }
     
-    private void AddGoodPoints(int points)
+    public void AddGoodPoints(int points)
     {
         if (points < 0)
-            throw new InvalidPointNumber("negative value for number of points to add");
+            throw new Exception("negative value for number of points to add");
         _goodPoints += points;
         PointsManager.instance.changePoints(_goodPoints, _badPoints);
         Favor = IsGood();
     }
     
-    private void AddBadPoints(int points)
+    public void AddBadPoints(int points)
     {
         if (points < 0)
-            throw new InvalidPointNumber("negative value for number of points to add");
+            throw new Exception("negative value for number of points to add");
         _badPoints += points;
         PointsManager.instance.changePoints(_goodPoints, _badPoints);
         Favor = IsGood();
@@ -71,6 +66,6 @@ public class PointSystem : MonoBehaviour
         Favor = FavorType.BALANCED;
         instance = this;
         _goodPoints = 1;
-        _badPoints = 1; 
+        _badPoints = 1;
     }
 }

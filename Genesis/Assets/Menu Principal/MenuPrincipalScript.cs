@@ -1,7 +1,5 @@
-using System;
 using Mirror;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuPrincipalScript : MonoBehaviour
 {

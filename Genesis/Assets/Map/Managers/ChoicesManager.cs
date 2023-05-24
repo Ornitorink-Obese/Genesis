@@ -23,16 +23,6 @@ public class ChoicesManager : MonoBehaviour
         instance = this; 
     }
 
-    private void Start()
-    {
-        Name_Choices = GameObject.FindGameObjectWithTag("Name Choices").GetComponent<Text>();
-        Texte_Choices = GameObject.FindGameObjectWithTag("Texte Choices").GetComponent<Text>();
-        choice1 = GameObject.FindGameObjectWithTag("Choice 1").GetComponent<Text>();
-        choice2 = GameObject.FindGameObjectWithTag("Choice 2").GetComponent<Text>();
-        choice3 = GameObject.FindGameObjectWithTag("Choice 3").GetComponent<Text>();
-        choice_panel = GameObject.FindGameObjectWithTag("Choice Panel").GetComponent<Animator>();
-    }
-
     public void StartChoices(NpcScript npc)
     {
         choice_panel.SetBool("isOpen", true);

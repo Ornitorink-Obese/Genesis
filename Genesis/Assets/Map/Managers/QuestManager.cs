@@ -18,7 +18,9 @@ public class QuestManager : MonoBehaviour
     public Text Name;
     public Text Description;
     public GameObject Logo;
-    public GameObject LogoValidate;
+    public GameObject GoodFace;
+    public GameObject BadFace;
+
 
     
     private void Awake()
@@ -34,10 +36,13 @@ public class QuestManager : MonoBehaviour
         Name = GameObject.FindGameObjectWithTag("Name").GetComponent<Text>();
         Description = GameObject.FindGameObjectWithTag("Description").GetComponent<Text>();
         Logo = GameObject.FindGameObjectWithTag("Logo");
-        LogoValidate = GameObject.FindGameObjectWithTag("Logo validate");
+        GoodFace = GameObject.FindGameObjectWithTag("GoodFace");
+        BadFace = GameObject.FindGameObjectWithTag("BadFace");
         QuestPanel = GameObject.FindGameObjectWithTag("Quest Panel").GetComponent<Animator>();
         
-        LogoValidate.SetActive(false);
+        GoodFace.SetActive(false);        
+        BadFace.SetActive(false);
+
         Logo.SetActive(true);
     }
 
@@ -57,32 +62,30 @@ public class QuestManager : MonoBehaviour
         if (type == Quest.Type.GOOD)
         {
             PointSystem.instance.AddGoodPoints(1);
+            FinishGood();
         }
         if (type == Quest.Type.BAD)
         {
             PointSystem.instance.AddBadPoints(1);
+            FinishBad();
         }
         
-        if (type == ActualQuest.Type)
-        {
-            FinishSame();
-        }
-        else
-        {
-            FinishNotSame();
-        }
         QuestPanel.SetBool("isOpen",false); //Fermeture Panel
         return;
     }
     
 
-    private void FinishSame() //Gestion UI
+    private void FinishGood() //Gestion UI
     {
-        
+        Logo.SetActive(false);
+        GoodFace.SetActive(true);
+        BadFace.SetActive(false);
     }
-    private void FinishNotSame() //Gestion UI
+    private void FinishBad() //Gestion UI
     {
-        
+        Logo.SetActive(false);
+        GoodFace.SetActive(false);
+        BadFace.SetActive(true);
     }
 
 }

@@ -6,6 +6,7 @@ public class MultiPlayerScript : MonoBehaviour
 {
     public NetworkManager networkManager;
     public GameObject CanvasPanel;
+    public GameObject ipTxt;
     public string adress;
 
     private void Start()
@@ -21,6 +22,7 @@ public class MultiPlayerScript : MonoBehaviour
     public void Host()
     {
         CanvasPanel.SetActive(true);
+        ipTxt.SetActive(true);
         networkManager.StartHost();
     }
 

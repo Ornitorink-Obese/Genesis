@@ -7,7 +7,7 @@ namespace Map.Managers
         public GameObject[] objects;
     
         void Awake()
-        {
+        {            
             foreach (GameObject element in objects)
             {
                 DontDestroyOnLoad(element);

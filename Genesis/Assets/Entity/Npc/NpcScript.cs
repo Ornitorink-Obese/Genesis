@@ -24,6 +24,7 @@ public class NpcScript : EntityScript
     // Facultatif : si le PNJ doit se déplacer. Est utilisé pour déplacer le PNJ à son point final
 
     public Vector2 final_point;
+    private bool already_choice;
 
     
     // ------------------------- QUEST ------------------------- //
@@ -35,6 +36,7 @@ public class NpcScript : EntityScript
     {
         i = 0;
         PlayerInRangeText = GameObject.FindGameObjectWithTag("PlayerInRangeTxt").GetComponent<Text>();
+        already_choice = false;
     }
 
     void Update()
@@ -55,7 +57,7 @@ public class NpcScript : EntityScript
             }
             
             // Quest already finished
-            if (Input.GetKeyDown(KeyCode.E) && NPCQuest.Status == Quest.Status.FINISHED)
+            if (Input.GetKeyDown(KeyCode.E) && NPCQuest.QuestStatus == Quest.Status.FINISHED)
             {
                 if (NPCQuest.QuestType == Quest.Type.GOOD)
                 {
@@ -106,6 +108,7 @@ public class NpcScript : EntityScript
         {
             QuestManager.instance.StartAQuest(this.NPCQuest);
             points = new Vector2[] { final_point };
+            speed = 100;
         }
     }
 
@@ -116,9 +119,14 @@ public class NpcScript : EntityScript
 
     public void EndChoice(int change)
     {
-        Dialogue_Part = change;
-        ChoicesManager.instance.FinishChoices();
-        StartDialogue();
+        Debug.Log("Change : " + change);
+        if (!already_choice)
+        {
+            already_choice = true;
+            Dialogue_Part = change;
+            ChoicesManager.instance.FinishChoices();
+            StartDialogue();
+        }
     }
     private void GoToNextPoint()
     {

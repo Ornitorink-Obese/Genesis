@@ -18,6 +18,8 @@ TagManager:
   - Choice 2
   - Choice 3
   - Choice Panel
+  - GoodFace
+  - BadFace
   layers:
   - Default
   - TransparentFX

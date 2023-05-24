@@ -7,7 +7,7 @@ public abstract class QuestItem : ItemScript
 {
     public Quest.Type ItemType;
     private Text PlayerInRangeText;
-    private bool playerinrange;
+    public bool playerinrange;
     public string in_range_text;
     void Start()
     {        

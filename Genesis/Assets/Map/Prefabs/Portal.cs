@@ -2,6 +2,7 @@
 using System.IO;
 using Mirror;
 using Mirror.Examples.AdditiveLevels;
+using Unity.Services.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,33 +18,17 @@ namespace Map.Prefabs
         [Tooltip("Where to spawn player in Destination Scene")]
         public Vector2 startPosition;
 
-        // [Tooltip("Reference to child TMP label")]
-        // public TextMesh label; // don't depend on TMPro. 2019 errors.
-        //
-        // [SyncVar(hook = nameof(OnLabelTextChanged))]
-        // public string labelText;
-        //
-        // public void OnLabelTextChanged(string _, string newValue)
-        // {
-        //     label.text = labelText;
-        // }
-
         // This is approximately the fade time
-        WaitForSeconds waitForFade = new WaitForSeconds(2f);
+        WaitForSeconds waitForFade = new WaitForSeconds(0f);
 
         public override void OnStartServer()
         {
-            // labelText = Path.GetFileNameWithoutExtension(destinationScene);
-            
             Debug.Log(destinationScene);
 
             destinationScene = Path.GetFileNameWithoutExtension(destinationScene);
             
             Debug.Log(destinationScene);
             Debug.Log(targetSceneIndex);
-
-            // Simple Regex to insert spaces before capitals, numbers
-            // labelText = Regex.Replace(labelText, @"\B[A-Z0-9]+", " $0");
         }
 
         public override void OnStartClient()
@@ -93,7 +78,6 @@ namespace Map.Prefabs
 
                 Scene currentScene = SceneManager.GetActiveScene();
                 SceneManager.LoadSceneAsync(targetSceneIndex, LoadSceneMode.Additive);
-                SceneManager.UnloadSceneAsync(currentScene);
 
                 // reposition player on server and client
                 player.transform.position = startPosition;
