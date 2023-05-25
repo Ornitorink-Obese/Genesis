@@ -20,6 +20,9 @@ TagManager:
   - Choice Panel
   - GoodFace
   - BadFace
+  - Button1
+  - Button2
+  - Button3
   layers:
   - Default
   - TransparentFX
