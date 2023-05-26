@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Mirror;
+using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthManager : NetworkBehaviour
 {
     public int health;
     private int maxHealth = 100;

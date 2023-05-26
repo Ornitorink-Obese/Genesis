@@ -15,7 +15,7 @@ public class PlayerScript : MonoBehaviour
     public Animator animator;
 
     public static PlayerScript instance;
-    
+
     private void Awake()
     {
         if (instance != null)
