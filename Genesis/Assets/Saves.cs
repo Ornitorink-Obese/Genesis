@@ -7,6 +7,12 @@ public class Saves : MonoBehaviour
 {
     private GameObject player;
 
+    private void Start()
+    {
+        if(MenuPrincipalScript.loadSavedData)
+            LoadData();
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
@@ -45,13 +51,7 @@ public class Saves : MonoBehaviour
 
         NetworkManager.singleton.ServerChangeScene(savedData.level);
         player.transform.position = savedData.position;
-        
-        // Scene current = SceneManager.GetActiveScene();
-        // SceneManager.LoadSceneAsync(savedData.level, LoadSceneMode.Additive);
-        // player.transform.position = savedData.position;
-        // SceneManager.UnloadSceneAsync(current);
-        // SceneManager.MoveGameObjectToScene(player, SceneManager.GetSceneByName(savedData.level));
-        
+
         HealthManager.instance.health = savedData.health;
         HealthBar.instance.SetHealth(savedData.health);
 
