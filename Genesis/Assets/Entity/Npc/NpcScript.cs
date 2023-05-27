@@ -117,11 +117,13 @@ button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
 if (Dialogue_Part==3)
 {
             QuestManager.instance.StartAQuest(this.NPCQuest);
+            NPCBody.position = final_point;
             points = new Vector2[] { final_point };
             speed = 100;
 }
 else{
 Debug.Log("FINISH");
+//if (NPCQuest.
 Dialogue_Part = 0;
 ActivateButton();
 GetChoice();

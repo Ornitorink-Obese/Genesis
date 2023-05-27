@@ -5776,7 +5776,7 @@ MonoBehaviour:
   autoConnectClientBuild: 0
   sendRate: 30
   offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/Level1.unity
+  onlineScene: Assets/Scenes/Cinematic.unity
   transport: {fileID: 7313982527321720979}
   networkAddress: localhost
   maxConnections: 100

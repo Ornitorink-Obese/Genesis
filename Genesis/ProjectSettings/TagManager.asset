@@ -23,6 +23,8 @@ TagManager:
   - Button1
   - Button2
   - Button3
+  - VideoPlayer
+  - Portal
   layers:
   - Default
   - TransparentFX
