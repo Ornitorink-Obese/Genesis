@@ -25,6 +25,10 @@ public class NpcScript : EntityScript
 
     public Vector2 final_point;
     private bool already_choice;
+public Button button1;
+public Button button2;
+public Button button3;
+
 
     
     // ------------------------- QUEST ------------------------- //
@@ -37,6 +41,10 @@ public class NpcScript : EntityScript
         i = 0;
         PlayerInRangeText = GameObject.FindGameObjectWithTag("PlayerInRangeTxt").GetComponent<Text>();
         already_choice = false;
+button1=GameObject.FindGameObjectWithTag("Button1").GetComponent<Button>();
+button2=GameObject.FindGameObjectWithTag("Button2").GetComponent<Button>();
+button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
+
     }
 
     void Update()
@@ -106,9 +114,21 @@ public class NpcScript : EntityScript
     {
         if (DialogueManager.instance.ContinueADialogue())
         {
+if (Dialogue_Part==3)
+{
             QuestManager.instance.StartAQuest(this.NPCQuest);
+            NPCBody.position = final_point;
             points = new Vector2[] { final_point };
             speed = 100;
+}
+else{
+Debug.Log("FINISH");
+//if (NPCQuest.
+Dialogue_Part = 0;
+ActivateButton();
+GetChoice();
+already_choice=false;
+}
         }
     }
 
@@ -126,6 +146,7 @@ public class NpcScript : EntityScript
             Dialogue_Part = change;
             ChoicesManager.instance.FinishChoices();
             StartDialogue();
+DesactivateButton();
         }
     }
     private void GoToNextPoint()
@@ -144,4 +165,18 @@ public class NpcScript : EntityScript
             }
         }
     }
+
+private void DesactivateButton()
+{
+button1.interactable = false;
+button2.interactable = false;
+button3.interactable=false;
+}
+
+private void ActivateButton()
+{
+button1.interactable = true;
+button2.interactable = true;
+button3.interactable=true;
+}
 }
