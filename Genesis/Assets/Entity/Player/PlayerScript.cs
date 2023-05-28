@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
     public Collider2D playerCollider;
     public Collider2D weaponCollider;
     public Collider2D detect;
+    public SpriteRenderer spritos;
 
     public int speed;
     public int damage;
@@ -41,20 +42,60 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow))
-            body.position += Vector2.up * (speed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.DownArrow))
-            body.position += Vector2.down * (speed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.LeftArrow))
-            body.position += Vector2.left * (speed * Time.deltaTime);
-        if (Input.GetKey(KeyCode.RightArrow))
-            body.position += Vector2.right * (speed * Time.deltaTime);
-        
-        if (Input.GetMouseButtonDown(0) && canAttack)
         {
+            body.position += Vector2.up * (speed * Time.deltaTime);
+            animator.SetBool("idle",false);
+            animator.SetBool("walk",true);
+        }
+
+        else if (Input.GetKey(KeyCode.DownArrow))
+        {
+            body.position += Vector2.down * (speed * Time.deltaTime);
+            animator.SetBool("idle",false);
+            animator.SetBool("walk",true);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            animator.SetBool("idle",false);
+            animator.SetBool("walk",true);
+            body.position += Vector2.left * (speed * Time.deltaTime);
+            spritos.flipX = true;
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            animator.SetBool("idle",false);
+            animator.SetBool("walk",true);
+            body.position += Vector2.right * (speed * Time.deltaTime);
+            spritos.flipX = false;
+        }
+        
+        else if (Input.GetMouseButtonDown(0) && canAttack)
+        {
+            animator.SetBool("atack",true);
             StartCoroutine(Attack());
+        }
+
+        else
+        {
+            animator.SetBool("walk",false);
+            animator.SetBool("idle",true);
         }
     }
 
+    public void EndAtack()
+    {
+        animator.SetBool("atack",false);
+    }
+
+    public void EndHit()
+    {
+        animator.SetBool("hit",false);
+    }
+
+    public void EndDie()
+    {
+        animator.SetBool("die",false);
+    }
 
 
     public IEnumerator Attack()
@@ -68,9 +109,7 @@ public class PlayerScript : MonoBehaviour
         weaponCollider.enabled = true;
         // deals damage to mob
         canAttack = false;
-        animator.SetBool("IsAttacking", true);
         yield return new WaitForSeconds(1);
-        animator.SetBool("IsAttacking", false);
         weaponCollider.enabled = false;
         canAttack = true;
     }
