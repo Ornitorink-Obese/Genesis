@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BourreauScript : MobScript
+public class AngeScript2 : MobScript
 {
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
-        damage = 40;
-        speed = 2;
+        health = 20;
+        damage = 5;
+        speed = 8;
         atak = true;
         charge = true;
     }
@@ -17,20 +17,17 @@ public class BourreauScript : MobScript
     // Update is called once per frame
     void Update()
     {
-
-        Flip();
-
         if (havetarget && charge && infeinte == false && KB == false)
         {
             Vector2 direction = target.transform.position - transform.position;
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
-            nf = Random.Range(0,10000);
+            nf = UnityEngine.Random.Range(0,10000);
             if (nf == 2000)
             {
                 infeinte = true;
                 feinte = transform.position;
                 print("feinte");
-                int howf = Random.Range(0,2);
+                int howf = UnityEngine.Random.Range(0,2);
                 if (howf == 0)
                 {
                     feinte.y = feinte.y + 3;
@@ -83,5 +80,6 @@ public class BourreauScript : MobScript
             ItemDrop();
         }
 
+        Flip();
     }
 }

@@ -24,6 +24,7 @@ public class MobScript : EntityScript
     public bool infeinte;
     public bool KB;
     public Vector2 recule;
+    public SpriteRenderer spriterenderer;
 
     public IEnumerator Wait(int seconds)
     {
@@ -111,6 +112,8 @@ public class MobScript : EntityScript
             if (collision is BoxCollider2D)
             {
                 havetarget = false;
+                animator.SetBool("walk",false);
+                animator.SetBool("idle",true);
             }
         }
     }
@@ -124,12 +127,15 @@ public class MobScript : EntityScript
             {
                 print("pastabox");
                 havetarget = true;
+                animator.SetBool("idle",false);
+                animator.SetBool("walk",true);
                 target = collision.gameObject;
             }
 
             if (collision is CapsuleCollider2D)
             {
                 HealthManager.instance.TakeDamage(damage);
+                animator.SetBool("atack",true);
                 print("charge");
                 charge = false;
                 back = transform.position;
@@ -179,7 +185,34 @@ public class MobScript : EntityScript
     {
         if (atak == false)
         {
+            animator.SetBool("hit",true);
             health -= damage;
+        }
+    }
+
+    public void EndHit()
+    {
+        animator.SetBool("hit",false);
+    }
+
+    public void EndAtack()
+    {
+        animator.SetBool("atack",false);
+    }
+
+    public void Flip()
+    {
+        if(havetarget)
+        {
+            if (transform.position.x > target.transform.position.x)
+            {
+                spriterenderer.flipX = true;
+            }
+
+            else
+            {
+                spriterenderer.flipX = false;
+            }
         }
     }
 

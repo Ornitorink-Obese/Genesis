@@ -79,5 +79,7 @@ public class DemonScript : MobScript
             Destroy(transform.gameObject);
             ItemDrop();
         }
+
+        Flip();
     }
 }
