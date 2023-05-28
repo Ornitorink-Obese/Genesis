@@ -4559,7 +4559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsPanel: {fileID: 645706569}
   MultiPlayerPanel: {fileID: 2069534853}
-  Continue_Button: {fileID: 1757834059}
+  Continue_Button: {fileID: 0}
   healthbar: {fileID: 1158129991}
   networkManager: {fileID: 886045790487905880}
   saves_empty: {fileID: 32676698}

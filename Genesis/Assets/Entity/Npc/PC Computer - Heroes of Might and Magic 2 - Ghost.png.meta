@@ -1,0 +1,938 @@
+fileFormatVersion: 2
+guid: 2d4f1ebf0a5690d47aae023f6931b662
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 171
+        width: 42
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a058eee64d26047a7d2fc23fd83e36
+      internalID: -865025435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 171
+        width: 42
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87979f089eca4c64bbe478bb42938201
+      internalID: 260512362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 172
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6c3862ea2e0c94bb806b5feb798890
+      internalID: -80133662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 172
+        width: 46
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f7cfcdf6b3acd4b94580d25804a2d1
+      internalID: -627191356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_4
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 172
+        width: 47
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38d990dd0e672a4ca78fcf6e0b58ce5
+      internalID: 1651266851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_5
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 173
+        width: 42
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de6189c669989c349b2f1a20a4f33376
+      internalID: 1622514408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_6
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 173
+        width: 42
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdeb9db41b5b3644a8b7de18107bb90
+      internalID: -1201339122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_7
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 172
+        width: 42
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cb1df224bc2d4498a3b9f1afb45f13
+      internalID: -486406290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_8
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 171
+        width: 44
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685064b831045304b910e27297ad0e07
+      internalID: 1004189123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_9
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 209
+        width: 39
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01b85092ffd2d84aab7de24f230feec
+      internalID: 1829387768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_10
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 209
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f67c47ebf10b4f4899a45ce8a01e5a3
+      internalID: 945770051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_11
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 209
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c71717b349faac0429386edeef511c86
+      internalID: -2001930596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_12
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 208
+        width: 45
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b707fe07c09f747bfffca1083640be
+      internalID: -321632342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_13
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 172
+        width: 41
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6918f089ac8efe0498e8c38f9d033667
+      internalID: -927654352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_14
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 172
+        width: 42
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ba02d8533115746aaf65d05cdee871
+      internalID: 1155222577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_15
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 172
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d8b34306d97d84ebf87102c9398ca3
+      internalID: -438034253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_16
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 173
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a0f4581b1dc1094b9edf7f5b2b707cf
+      internalID: -2051426795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_17
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 95
+        width: 35
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 743cfb289b57b694695ba3ee4161cdf3
+      internalID: 235402920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_18
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 92
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cde4127ee0856b47b311ba7be655456
+      internalID: 558391302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_19
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 92
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ae39b4d23027764690323280d03468e
+      internalID: 770898756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_20
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 95
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d270bd35472ce34eb2f5e95db5b7387
+      internalID: 1572270416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_21
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 95
+        width: 59
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4511524f7f4d8b40bfa184eedbe0c21
+      internalID: -826216097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_22
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 95
+        width: 65
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c56bf36e289e043ae1935c9f5a8669
+      internalID: 795067630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_23
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 94
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48ee6321570d4a499d42d57a7017321
+      internalID: 1645721580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_24
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 85
+        width: 60
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c6decf3846acec42b3c86cb64fc24f5
+      internalID: -694624805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_25
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 81
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf6c5488b513e8f4b822d3be51272fbe
+      internalID: -202804346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_26
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 93
+        width: 63
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad9255d4d87dc274babc9d0390d77788
+      internalID: 1205002961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_27
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 14
+        width: 54
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a1d36b57ea796488c1f208f6b9fc15
+      internalID: 1289610840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_28
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 13
+        width: 53
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706b4c12d3542964b907d3ce36a884fc
+      internalID: -1545854638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_29
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 30
+        width: 55
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fa4290d3d386c4f90737e96711ec09
+      internalID: -141021218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_30
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 14
+        width: 57
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08cf3ec749f63b54898e97349e57c066
+      internalID: 508834821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_31
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 14
+        width: 53
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4357106ede493c64bb344e7bcac99fd0
+      internalID: 2139813274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_32
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 14
+        width: 43
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0757f371fb6d3b47b4e8bf672bd2bdd
+      internalID: 1094989441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_33
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 14
+        width: 44
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcfb4a246809264ea283c5bb3b65dea
+      internalID: -1221556558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_34
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 10
+        width: 90
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a446120601e37cd48b1e6bac03f9291b
+      internalID: -474351398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_35
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 15
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289bbb008671fd64c84c360bbe2e9082
+      internalID: -945092123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Heroes of Might and Magic 2 - Ghost_36
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 15
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dbda8b2b3b23fb46aa3e1c03363e58c
+      internalID: 2001162110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a3b1a515953417541accbfddd9ba174b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - Heroes of Might and Magic 2 - Ghost_0: -865025435
+      PC Computer - Heroes of Might and Magic 2 - Ghost_1: 260512362
+      PC Computer - Heroes of Might and Magic 2 - Ghost_10: 945770051
+      PC Computer - Heroes of Might and Magic 2 - Ghost_11: -2001930596
+      PC Computer - Heroes of Might and Magic 2 - Ghost_12: -321632342
+      PC Computer - Heroes of Might and Magic 2 - Ghost_13: -927654352
+      PC Computer - Heroes of Might and Magic 2 - Ghost_14: 1155222577
+      PC Computer - Heroes of Might and Magic 2 - Ghost_15: -438034253
+      PC Computer - Heroes of Might and Magic 2 - Ghost_16: -2051426795
+      PC Computer - Heroes of Might and Magic 2 - Ghost_17: 235402920
+      PC Computer - Heroes of Might and Magic 2 - Ghost_18: 558391302
+      PC Computer - Heroes of Might and Magic 2 - Ghost_19: 770898756
+      PC Computer - Heroes of Might and Magic 2 - Ghost_2: -80133662
+      PC Computer - Heroes of Might and Magic 2 - Ghost_20: 1572270416
+      PC Computer - Heroes of Might and Magic 2 - Ghost_21: -826216097
+      PC Computer - Heroes of Might and Magic 2 - Ghost_22: 795067630
+      PC Computer - Heroes of Might and Magic 2 - Ghost_23: 1645721580
+      PC Computer - Heroes of Might and Magic 2 - Ghost_24: -694624805
+      PC Computer - Heroes of Might and Magic 2 - Ghost_25: -202804346
+      PC Computer - Heroes of Might and Magic 2 - Ghost_26: 1205002961
+      PC Computer - Heroes of Might and Magic 2 - Ghost_27: 1289610840
+      PC Computer - Heroes of Might and Magic 2 - Ghost_28: -1545854638
+      PC Computer - Heroes of Might and Magic 2 - Ghost_29: -141021218
+      PC Computer - Heroes of Might and Magic 2 - Ghost_3: -627191356
+      PC Computer - Heroes of Might and Magic 2 - Ghost_30: 508834821
+      PC Computer - Heroes of Might and Magic 2 - Ghost_31: 2139813274
+      PC Computer - Heroes of Might and Magic 2 - Ghost_32: 1094989441
+      PC Computer - Heroes of Might and Magic 2 - Ghost_33: -1221556558
+      PC Computer - Heroes of Might and Magic 2 - Ghost_34: -474351398
+      PC Computer - Heroes of Might and Magic 2 - Ghost_35: -945092123
+      PC Computer - Heroes of Might and Magic 2 - Ghost_36: 2001162110
+      PC Computer - Heroes of Might and Magic 2 - Ghost_4: 1651266851
+      PC Computer - Heroes of Might and Magic 2 - Ghost_5: 1622514408
+      PC Computer - Heroes of Might and Magic 2 - Ghost_6: -1201339122
+      PC Computer - Heroes of Might and Magic 2 - Ghost_7: -486406290
+      PC Computer - Heroes of Might and Magic 2 - Ghost_8: 1004189123
+      PC Computer - Heroes of Might and Magic 2 - Ghost_9: 1829387768
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -27,7 +27,7 @@ public class DialogueManager : MonoBehaviour
         dialogue.Clear(); //Au cas où l'ancien dialogue n'a pas vider la file
         foreach (string texteframe in npc.NPCDialogue[npc.Dialogue_Part].texte)
         {
-            Debug.Log(texteframe);
+            //Debug.Log(texteframe);
             dialogue.Enqueue(texteframe); //REMPLI LES PARTIES DU DIALOGUE SOUS FORME DE FILES
         }
         Name_Dialogue.text = npc.NPCName;
