@@ -175,7 +175,7 @@ public class MobScript : EntityScript
 
     public void ItemDrop()
     {
-       Instantiate(itemsDropped, transform.position, quaternion.identity);
+       Instantiate(itemsDropped, transform.position, Quaternion.identity);
     }
     
     public void TakeDamage(int damage)

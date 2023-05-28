@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D body;
     public Collider2D playerCollider;
     public Collider2D weaponCollider;
+    public Collider2D detect;
 
     public int speed;
     public int damage;
