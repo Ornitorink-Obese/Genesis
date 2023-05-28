@@ -52,13 +52,13 @@ button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
         if (PlayerInRange)
         {
             // Get choice of player
-            if (Input.GetKeyDown(KeyCode.E) && Dialogue_Part == 0)
+            if (Input.GetKeyDown(KeyCode.E) && Dialogue_Part == 0 && NPCQuest.QuestStatus != Quest.Status.FINISHED)
             {
                 PlayerInRangeText.enabled = false;
                 GetChoice();
             }
             // Continue Dialogue if don't finished
-            if (Input.GetKeyDown(KeyCode.Return) && Dialogue_Part != 0)
+            if (Input.GetKeyDown(KeyCode.Return) && Dialogue_Part != 0 && NPCQuest.QuestStatus != Quest.Status.FINISHED)
             {
                 PlayerInRangeText.enabled = false;
                 ContinueDialogue();
@@ -81,16 +81,16 @@ button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
         }
         else
         {
-			PlayerInRangeText.enabled = false;
             GoToNextPoint(); //Facultatif : Deplacement prochain point
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.GetType()==typeof(PolygonCollider2D))
         {
             PlayerInRange = true;
+            PlayerInRangeText.text = "Appuyez sur E pour interagir";
             PlayerInRangeText.enabled = true;
             speed = 0;
         } 
@@ -98,10 +98,11 @@ button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
 
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player")&& collision.GetType()==typeof(PolygonCollider2D))
         {
             PlayerInRange = false;
             speed = 1;
+            PlayerInRangeText.enabled = false;
         } 
     }
 
