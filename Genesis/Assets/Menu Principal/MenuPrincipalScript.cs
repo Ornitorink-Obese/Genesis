@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using Mirror;
 using UnityEngine;
 
@@ -10,6 +8,7 @@ public class MenuPrincipalScript : MonoBehaviour
     public GameObject Continue_Button;
     public GameObject healthbar;
     public NetworkManager networkManager;
+    public GameObject saves_empty;
 
     public static bool loadSavedData;
     
@@ -28,9 +27,16 @@ public class MenuPrincipalScript : MonoBehaviour
 
     void Continue()
     {
+        string filepath = Application.persistentDataPath + "/SavedData.json";
+        string jsonData = System.IO.File.ReadAllText(filepath);
+
+        SavedData savedData = JsonUtility.FromJson<SavedData>(jsonData);
+        networkManager.onlineScene = savedData.level;
+        
         loadSavedData = true;
-        healthbar.SetActive(true);
         networkManager.StartHost();
+        healthbar.SetActive(true);
+        saves_empty.SetActive(true);
     }
     
     public void MultiPlayer()
