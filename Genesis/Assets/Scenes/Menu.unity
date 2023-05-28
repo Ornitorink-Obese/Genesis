@@ -4527,7 +4527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SettingsPanel: {fileID: 645706569}
   MultiPlayerPanel: {fileID: 2069534853}
-  Continue_Button: {fileID: 1757834059}
+  Continue_Button: {fileID: 0}
   healthbar: {fileID: 1158129991}
   networkManager: {fileID: 886045790487905880}
 --- !u!114 &1667455434
@@ -6060,7 +6060,7 @@ MonoBehaviour:
   autoConnectClientBuild: 0
   sendRate: 30
   offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/Cinematic.unity
+  onlineScene: Assets/Scenes/IntroScene.unity
   transport: {fileID: 7313982527321720979}
   networkAddress: localhost
   maxConnections: 100
