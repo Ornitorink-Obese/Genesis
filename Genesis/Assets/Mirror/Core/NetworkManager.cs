@@ -407,12 +407,12 @@ namespace Mirror
         }
 
         /// <summary>Starts a network "host" - a server and client in the same application.</summary>
-        public void StartHost()
+        public bool StartHost()
         {
             if (NetworkServer.active || NetworkClient.active)
             {
                 Debug.LogWarning("Server or Client already started.");
-                return;
+                return false;
             }
 
             mode = NetworkManagerMode.Host;
@@ -456,6 +456,8 @@ namespace Mirror
             {
                 FinishStartHost();
             }
+
+            return true;
         }
 
         // This may be set true in StartHost and is evaluated in FinishStartHost
