@@ -41,6 +41,13 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+
+        if (Input.GetMouseButtonDown(0) && canAttack)
+        {
+            animator.SetBool("atack",true);
+            StartCoroutine(Attack());
+        }
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
             body.position += Vector2.up * (speed * Time.deltaTime);
@@ -67,12 +74,6 @@ public class PlayerScript : MonoBehaviour
             animator.SetBool("walk",true);
             body.position += Vector2.right * (speed * Time.deltaTime);
             spritos.flipX = false;
-        }
-        
-        else if (Input.GetMouseButtonDown(0) && canAttack)
-        {
-            animator.SetBool("atack",true);
-            StartCoroutine(Attack());
         }
 
         else
