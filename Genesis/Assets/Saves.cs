@@ -1,9 +1,25 @@
+using System;
+using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Saves : MonoBehaviour
+public class Saves : NetworkBehaviour
 {
     private GameObject player;
+
+    public static Saves instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("there is already a save instance");
+            return;
+        }
+
+        instance = this;
+
+    }
 
     private void Start()
     {
