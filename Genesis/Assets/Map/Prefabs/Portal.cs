@@ -9,7 +9,7 @@ public class Portal : NetworkBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (isServer)
+        if (isServer && col.GetType() == typeof(PolygonCollider2D))
         {
             NetworkManager.singleton.ServerChangeScene(Scene_name);
             GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
