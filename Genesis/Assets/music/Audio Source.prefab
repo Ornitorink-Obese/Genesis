@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4216815422696278261
 AudioSource:
@@ -142,5 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playlist:
-  - {fileID: 8300000, guid: fa4b7dfa3603ba447b66c06096d336c9, type: 3}
+  - {fileID: 8300000, guid: 8e3c855d322707a4096dd53a9eed0085, type: 3}
+  - {fileID: 8300000, guid: 092c67433a035c941b29c78003c40345, type: 3}
+  - {fileID: 8300000, guid: 8316a4fea90ad254e9c979db7bf1129a, type: 3}
+  - {fileID: 8300000, guid: 8316a4fea90ad254e9c979db7bf1129a, type: 3}
+  - {fileID: 8300000, guid: 116dcde8ab5a6a946977cc68fcef77d0, type: 3}
+  - {fileID: 8300000, guid: 7ea54e0acb94cdc40874a12597e8bb44, type: 3}
+  - {fileID: 8300000, guid: 9b9225be08745d144b3a02ae70f344d1, type: 3}
+  - {fileID: 8300000, guid: a11f103d186975e4c90c6f5e4558a664, type: 3}
   Source: {fileID: 4216815422696278261}

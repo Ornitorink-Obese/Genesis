@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     {
         if (!Source.isPlaying)
         {
-            Source.clip = playlist[(index + 1) % playlist.Length];
+            Source.clip = playlist[(++index) % playlist.Length];
             Source.Play();
         }
     }
