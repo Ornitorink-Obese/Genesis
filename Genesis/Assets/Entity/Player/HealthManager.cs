@@ -44,7 +44,8 @@ public class HealthManager : NetworkBehaviour
     {
         PlayerScript.instance.speed = 0;
         PlayerScript.instance.body.bodyType = RigidbodyType2D.Kinematic;
-        PlayerScript.instance.playerCollider.enabled = false; 
+        PlayerScript.instance.playerCollider.enabled = false;
+        PlayerScript.instance.animator.SetBool("die",true);
         GameOverPanel.instance.Activate();
     }
     
@@ -54,6 +55,7 @@ public class HealthManager : NetworkBehaviour
         {
             health -= damage;
             HealthBar.instance.SetHealth(health);
+            PlayerScript.instance.animator.SetBool("hit",true);
         }
     }
 

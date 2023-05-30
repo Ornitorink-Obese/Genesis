@@ -209,6 +209,7 @@ MonoBehaviour:
   playerCollider: {fileID: 1621685862668181047}
   weaponCollider: {fileID: 5936592027072175565}
   detect: {fileID: 3855975913512496961}
+  spritos: {fileID: 3478708939640122444}
   speed: 0
   damage: 0
   animator: {fileID: 7081141185798542491}
@@ -300,7 +301,7 @@ Animator:
   m_GameObject: {fileID: 1498202095266529119}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c179abd8b49ea504d98cb7bf2b0bb4b5, type: 2}
+  m_Controller: {fileID: 9100000, guid: 13064945e2ce00a49b8f85f6efbb8217, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
