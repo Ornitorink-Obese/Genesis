@@ -34,6 +34,8 @@ public Button button3;
     // ------------------------- QUEST ------------------------- //
     public Quest NPCQuest;
     private int i;
+
+    private bool dialoguestart;
     
 
     void Start()
@@ -44,6 +46,7 @@ public Button button3;
 button1=GameObject.FindGameObjectWithTag("Button1").GetComponent<Button>();
 button2=GameObject.FindGameObjectWithTag("Button2").GetComponent<Button>();
 button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
+dialoguestart=false;
 
     }
 
@@ -71,11 +74,29 @@ button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
                 {
                     Dialogue_Part = 4;
                     DialogueManager.instance.StartADialogue(this);
-                }
+                    PlayerInRangeText.enabled = false;
+
+                        dialoguestart=true;
+                    }
                 else
                 {
                     Dialogue_Part = 5;
-                    DialogueManager.instance.StartADialogue(this);
+                    
+                        DialogueManager.instance.StartADialogue(this);
+                        PlayerInRangeText.enabled = false;
+
+                        dialoguestart=true;
+
+                    
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Return) && NPCQuest.QuestStatus == Quest.Status.FINISHED)
+            {
+                if (dialoguestart)
+                {
+                    DialogueManager.instance.ContinueADialogue();
+                    dialoguestart = false;
                 }
             }
         }

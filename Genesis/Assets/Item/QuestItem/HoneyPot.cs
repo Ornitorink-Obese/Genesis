@@ -19,17 +19,17 @@ public class HoneyPot : QuestItem
     public Text PlayerInRangeText;
     void OnTriggerEnter2D(Collider2D player) 
     {
-        if (player.CompareTag("Player")&& player.GetType()==typeof(PolygonCollider2D))
+        if (player.CompareTag("Player") && player.GetType()==typeof(PolygonCollider2D))
         {
             playerinrange = true;
             PlayerInRangeText.text = in_range_text;
-            Debug.Log("Affichage");
+            Debug.Log("HoneyPot");
             PlayerInRangeText.enabled = true;
         }
     }
     void OnTriggerExit2D(Collider2D player)
     {
-        if (player.CompareTag("Player")&& player.GetType()==typeof(PolygonCollider2D))
+        if (player.CompareTag("Player") && player.GetType()==typeof(PolygonCollider2D))
         {
             playerinrange = false;
             PlayerInRangeText.text = in_range_text;

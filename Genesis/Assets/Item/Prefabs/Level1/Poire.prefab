@@ -116,8 +116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6003cef527cd84ca59e1eefba395cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemType: 1
+  ItemType: 0
+  playerinrange: 0
   in_range_text: Appuyez sur E pour manger
+  PlayerInRangeText: {fileID: 0}
 --- !u!61 &7379974360941836535
 BoxCollider2D:
   m_ObjectHideFlags: 0
