@@ -8,6 +8,9 @@ public class PointSystem : MonoBehaviour
     
     private int _goodPoints;
     private int _badPoints;
+    
+    public static bool loadSavedData;
+    public static bool singleplayer;
 
     public enum FavorType
     {

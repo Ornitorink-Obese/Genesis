@@ -23,7 +23,7 @@ public class Saves : NetworkBehaviour
 
     private void Start()
     {
-        if(MenuPrincipalScript.loadSavedData)
+        if(PointSystem.loadSavedData)
             LoadData();
     }
 
