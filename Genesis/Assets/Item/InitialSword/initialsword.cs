@@ -6,37 +6,35 @@ public class initialsword : MonoBehaviour
     public GameObject portal;
     private bool playerInRange;
     public Text PlayerInRangeText;
-
-
-    private void Start()
-    {
-        gameObject.SetActive(true);
-        PlayerInRangeText = GameObject.FindGameObjectWithTag("PlayerInRangeTxt").GetComponent<Text>();
-    }
+    
 
     private void Update()
     {
         if (playerInRange & Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("récupéré");
             portal.SetActive(true);
-            Destroy(gameObject);
+            PlayerInRangeText.enabled = false;
+            this.GetComponent<SpriteRenderer>().enabled = false;
+            Destroy(this);
         }
     }
 
-    void OnTriggerEnter2D(Collider2D player) 
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (player.CompareTag("Player"))
+        if (col.CompareTag("Player") && col is PolygonCollider2D)
         {
             playerInRange = true;
             PlayerInRangeText.enabled = true;
         }
     }
-    void OnTriggerExit2D(Collider2D player)
+
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (player.CompareTag("Player"))
+        if (other.CompareTag("Player") && other is PolygonCollider2D)
         {
             playerInRange = false;
             PlayerInRangeText.enabled = false;
-        } 
+        }
     }
 }

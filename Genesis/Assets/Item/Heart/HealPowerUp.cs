@@ -1,15 +1,13 @@
-using System;
 using UnityEngine;
-//using Input = System.Windows.Input;
 
 public class HealPowerUp : MonoBehaviour
 {
-    public int Heal = 20;
+    public int Heal = 50;
     
     private bool _isOnPlayer;
 
     private const KeyCode InputKey = KeyCode.Keypad0; // The key one has to press to take the heal
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
@@ -24,13 +22,11 @@ public class HealPowerUp : MonoBehaviour
 
     private void Update()
     {
-        if (_isOnPlayer)
-        {
-            if (Input.GetKey(InputKey))
+        if(_isOnPlayer && Input.GetKeyDown(KeyCode.E))
+            if(HealthManager.instance.HealPlayer(Heal))
             {
-                if (HealthManager.instance.HealPlayer(Heal))
-                    Destroy(gameObject);
+                this.GetComponent<SpriteRenderer>().enabled = false;
+                Destroy(this);
             }
-        }
     }
 }

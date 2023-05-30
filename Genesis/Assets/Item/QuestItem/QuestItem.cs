@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public abstract class QuestItem : ItemScript
 {
@@ -23,6 +20,9 @@ public abstract class QuestItem : ItemScript
         {
             QuestManager.instance.FinishAQuest(ItemType);
             Destroy(gameObject);
+
+            if (this is Fruits)
+                HealthManager.instance.HealPlayer(5);
         }
     }
     

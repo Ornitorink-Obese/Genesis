@@ -3039,6 +3039,7 @@ GameObject:
   - component: {fileID: 1073186676}
   - component: {fileID: 1073186677}
   - component: {fileID: 1073186678}
+  - component: {fileID: 1073186679}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3088,7 +3089,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 790381b2973a21b458299a60a7cdf8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0.1
   Panel: {fileID: 882727736}
+  NetworkManager: {fileID: 886045790487905880}
 --- !u!114 &1073186676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3132,6 +3137,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Favor: 0
+--- !u!114 &1073186679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073186671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 229713625
+  _assetId: 0
+  serverOnly: 0
+  visible: 0
+  hasSpawned: 0
 --- !u!1 &1158129991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7283361273255130714, guid: 46c3b0bcc4994864993c41024827ccd0, type: 3}
@@ -4667,7 +4689,7 @@ RectTransform:
   - {fileID: 645706573}
   - {fileID: 2069534857}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -6114,7 +6136,7 @@ MonoBehaviour:
   autoConnectClientBuild: 0
   sendRate: 30
   offlineScene: Assets/Scenes/Menu.unity
-  onlineScene: Assets/Scenes/Level1.unity
+  onlineScene: Assets/Scenes/IntroScene.unity
   transport: {fileID: 7313982527321720979}
   networkAddress: localhost
   maxConnections: 100
@@ -6137,7 +6159,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4841446284594787976
 PrefabInstance:

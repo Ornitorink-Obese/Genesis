@@ -1,9 +1,12 @@
+using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverPanel : MonoBehaviour
+public class GameOverPanel : NetworkBehaviour
 {
     public GameObject Panel;
+    public NetworkManager NetworkManager;
+    private Vector3[] startingcoordinates = new []{new Vector3(10, -11), new Vector3(-12, -28), new Vector3(-10, -13)};
     
     public static GameOverPanel instance;
 
@@ -23,16 +26,52 @@ public class GameOverPanel : MonoBehaviour
     
     public void Quit()
     {
+        if (isServer)
+            NetworkManager.StopHost();
+        else 
+            NetworkManager.StopClient();
+        
         Application.Quit();
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene("Menu");
+        Panel.SetActive(false);
+        if (isServer)
+        {
+            Debug.Log("is server");
+            NetworkManager.StopHost();
+        }
+        else
+        {
+            Debug.Log("is not server");
+            NetworkManager.StopClient();
+        }
     }
 
     public void Retry()
     {
-        SceneManager.LoadScene("1erSoutenance");
+        Panel.SetActive(false);
+        HealthManager.instance.HealPlayer(100);
+        string current = SceneManager.GetActiveScene().name;
+        Vector3 coordinates;
+        switch (current)
+        {
+            case "IntroScene" :
+                coordinates = startingcoordinates[0];
+                break;
+            case "Level1" :
+                coordinates = startingcoordinates[1];
+                break;
+            case "Level2" :
+                coordinates = startingcoordinates[2];
+                break;
+            default:
+                coordinates = new Vector3(0, 0, 0);
+                break;
+        }
+
+        GameObject.FindGameObjectWithTag("Player").transform.position = coordinates;
+        NetworkManager.ServerChangeScene(current);
     }
 }

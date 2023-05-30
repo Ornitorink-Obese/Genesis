@@ -48,27 +48,27 @@ public class PlayerScript : MonoBehaviour
             StartCoroutine(Attack());
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.Z))
         {
             body.position += Vector2.up * (speed * Time.deltaTime);
             animator.SetBool("idle",false);
             animator.SetBool("walk",true);
         }
 
-        else if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
             body.position += Vector2.down * (speed * Time.deltaTime);
             animator.SetBool("idle",false);
             animator.SetBool("walk",true);
         }
-        else if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.Q))
         {
             animator.SetBool("idle",false);
             animator.SetBool("walk",true);
             body.position += Vector2.left * (speed * Time.deltaTime);
             spritos.flipX = true;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D))
         {
             animator.SetBool("idle",false);
             animator.SetBool("walk",true);
