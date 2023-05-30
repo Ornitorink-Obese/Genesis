@@ -39,11 +39,15 @@ public class PauseMenu : MonoBehaviour
         gamePausedPanel.SetActive(false);
         Time.timeScale = 1;
         GameIsPaused = false;
+        if(MenuPrincipalScript.singleplayer)
+            Saves.instance.SaveData();
         networkManager.StopHost();
     }
 
     public void Quit()
     {
+        if(MenuPrincipalScript.singleplayer)
+            Saves.instance.SaveData();
         networkManager.StopHost();
         Application.Quit();
     }
