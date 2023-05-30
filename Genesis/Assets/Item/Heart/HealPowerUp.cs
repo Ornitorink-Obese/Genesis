@@ -18,7 +18,7 @@ public class HealPowerUp : MonoBehaviour
     
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") && col.GetType() == typeof(PolygonCollider2D))
             _isOnPlayer = false;
     }
 
@@ -26,8 +26,9 @@ public class HealPowerUp : MonoBehaviour
     {
         if (_isOnPlayer)
         {
-            if (Input.GetKey(InputKey))
+            if (Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("COEUR");
                 if (HealthManager.instance.HealPlayer(Heal))
                     Destroy(gameObject);
             }
