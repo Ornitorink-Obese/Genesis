@@ -3,9 +3,23 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Saves : MonoBehaviour
+public class Saves : NetworkBehaviour
 {
     private GameObject player;
+
+    public static Saves instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.Log("there is already a save instance");
+            return;
+        }
+
+        instance = this;
+
+    }
 
     private void Start()
     {
@@ -24,10 +38,8 @@ public class Saves : MonoBehaviour
 
     public void SaveData()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
         SavedData savedData = new SavedData()
         {
-            position = player.transform.position,
             health = HealthManager.instance.health,
             level = SceneManager.GetActiveScene().name,
             goodpoints = PointsManager.instance.good,
@@ -48,10 +60,7 @@ public class Saves : MonoBehaviour
         string jsonData = System.IO.File.ReadAllText(filepath);
 
         SavedData savedData = JsonUtility.FromJson<SavedData>(jsonData);
-
-        NetworkManager.singleton.ServerChangeScene(savedData.level);
-        player.transform.position = savedData.position;
-
+        
         HealthManager.instance.health = savedData.health;
         HealthBar.instance.SetHealth(savedData.health);
 
@@ -65,7 +74,6 @@ public class Saves : MonoBehaviour
 
 public class SavedData
 {
-    public Vector3 position;
     public int goodpoints;
     public int badpoints;
     public string level;
