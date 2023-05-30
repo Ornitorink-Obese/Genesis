@@ -319,7 +319,7 @@ GameObject:
   - component: {fileID: 32676701}
   m_Layer: 0
   m_Name: Save_empty
-  m_TagString: Untagged
+  m_TagString: Saves_empty
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6222,7 +6222,7 @@ GameObject:
   - component: {fileID: 8650944191134059080}
   m_Layer: 0
   m_Name: NetworkManager
-  m_TagString: Untagged
+  m_TagString: NetworkManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6370,6 +6370,10 @@ PrefabInstance:
     - target: {fileID: 6550028671750287980, guid: 46c3b0bcc4994864993c41024827ccd0, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7283361273255130714, guid: 46c3b0bcc4994864993c41024827ccd0, type: 3}
+      propertyPath: m_TagString
+      value: Healthbar
       objectReference: {fileID: 0}
     - target: {fileID: 7495953484686770741, guid: 46c3b0bcc4994864993c41024827ccd0, type: 3}
       propertyPath: m_IsActive

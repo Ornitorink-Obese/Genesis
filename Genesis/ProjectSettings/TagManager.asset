@@ -25,6 +25,9 @@ TagManager:
   - Button3
   - VideoPlayer
   - Portal
+  - NetworkManager
+  - Healthbar
+  - Saves_empty
   layers:
   - Default
   - TransparentFX

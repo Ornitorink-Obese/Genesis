@@ -1,6 +1,6 @@
 using Mirror;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuPrincipalScript : MonoBehaviour
 {
@@ -11,13 +11,10 @@ public class MenuPrincipalScript : MonoBehaviour
     public NetworkManager networkManager;
     public GameObject saves_empty;
 
-    public static bool loadSavedData;
-    public static bool singleplayer;
-    
     private void Start()
     {
-        singleplayer = false;
-        loadSavedData = false;
+        PointSystem.singleplayer = false;
+        PointSystem.loadSavedData = false;
 
         if(System.IO.File.Exists(Application.persistentDataPath + "/SavedData.json"))
             Continue_Button.SetActive(true);
@@ -25,11 +22,7 @@ public class MenuPrincipalScript : MonoBehaviour
 
     public void Play()
     {
-        loadSavedData = false;
-        singleplayer = true;
-        healthbar.SetActive(true);
-        networkManager.StartHost();
-        saves_empty.SetActive(true);
+        SceneManager.LoadScene("Cutscene");
     }
 
     void Continue()
@@ -40,8 +33,8 @@ public class MenuPrincipalScript : MonoBehaviour
         SavedData savedData = JsonUtility.FromJson<SavedData>(jsonData);
         networkManager.onlineScene = savedData.level;
         
-        loadSavedData = true;
-        singleplayer = true;
+        PointSystem.loadSavedData = true;
+        PointSystem.singleplayer = true;
         networkManager.StartHost();
         healthbar.SetActive(true);
         saves_empty.SetActive(true);
