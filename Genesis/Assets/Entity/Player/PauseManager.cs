@@ -1,5 +1,6 @@
 using Mirror;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Cutscene")
+            return;
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
