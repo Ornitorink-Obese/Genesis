@@ -26,4 +26,6 @@ public abstract class QuestItem : ItemScript
         }
     }
     
+    
+    
 }

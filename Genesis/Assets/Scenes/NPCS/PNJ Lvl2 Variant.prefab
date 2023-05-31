@@ -1,0 +1,218 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2371821338060620612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1027377241177123126, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_Name
+      value: PNJ Lvl2 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: final_point.x
+      value: -735.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: final_point.y
+      value: -80.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCQuest.QuestType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCQuest.QuestDescription
+      value: "Amasse les richesses et c\xE8de la tentation ...."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: Dialogue_Choices.Array.data[0]
+      value: Toujours vous ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: Dialogue_Choices.Array.data[1]
+      value: Pourquoi moi ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: Dialogue_Choices.Array.data[2]
+      value: "Quelle sera l'\xE9preuve ?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[1].texte.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[2].texte.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[3].texte.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[4].texte.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[5].texte.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[0].texte.Array.data[0]
+      value: Encore moi ....
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[1].texte.Array.data[0]
+      value: "Bien s\xFBr, je suis l\xE0 pour te mettre \xE0 l'\xE9preuve."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[1].texte.Array.data[1]
+      value: N'oublie pas, tes actions impactent le monde qui t'entoure
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[2].texte.Array.data[0]
+      value: Tu n'a donc toujours pas compris ?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[2].texte.Array.data[1]
+      value: Tu n'est ni bon ni mauvais
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[2].texte.Array.data[2]
+      value: Ici nous te testons ...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[3].texte.Array.data[0]
+      value: "Cette fois-ci c\xE9de \xE0 la tentation..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[3].texte.Array.data[1]
+      value: Amasse l'or, les bijoux, les richesses...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[3].texte.Array.data[2]
+      value: Les objets de valeurs comptent plus que tout...
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[4].texte.Array.data[0]
+      value: "Je n'aurais pas pris cette d\xE9cision mais je la respecte."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[4].texte.Array.data[1]
+      value: "Passons \xE0 l'\xE9preuve suivante...."
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[5].texte.Array.data[0]
+      value: Tu a pris un bon choix.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438283322713287608, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: NPCDialogue.Array.data[5].texte.Array.data[1]
+      value: "Passons \xE0 l'\xE9preuve suivante...."
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443150454676242483, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: sceneId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443150454676242483, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: _assetId
+      value: 2512990283
+      objectReference: {fileID: 0}
+    - target: {fileID: 6443150454676242483, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: serverOnly
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_RootOrder
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -718.38934
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -131.92548
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1045706412794208543, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1027377241177123126, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7572496370924917067}
+  m_SourcePrefab: {fileID: 100100000, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+--- !u!1 &3362954000761973362 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1027377241177123126, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+  m_PrefabInstance: {fileID: 2371821338060620612}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7572496370924917067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362954000761973362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 8759992061897895189}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  onlySyncOnChangeCorrectionMultiplier: 2
+  rotationSensitivity: 0.01
+  compressRotation: 0
+  positionPrecision: 0.01
+  scalePrecision: 0.01
+--- !u!4 &8759992061897895189 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6447985537262415441, guid: 3931db47c2906084e8c8c4cebc74955b, type: 3}
+  m_PrefabInstance: {fileID: 2371821338060620612}
+  m_PrefabAsset: {fileID: 0}
