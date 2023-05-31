@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5701004528950745026}
   - component: {fileID: 1530795446554685027}
+  - component: {fileID: 262666955623966691}
   m_Layer: 0
   m_Name: Chaine
   m_TagString: Untagged
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &262666955623966691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479077207844141721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf34260c91419934a9832ef52cfa6b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemType: 1
+  playerinrange: 0
+  in_range_text: "Appuyez sur E pour r\xE9colter"

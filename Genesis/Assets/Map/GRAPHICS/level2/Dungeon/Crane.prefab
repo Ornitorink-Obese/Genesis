@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194886002089346916}
   - component: {fileID: 8450703779804083008}
+  - component: {fileID: 4547048111637112864}
   m_Layer: 0
   m_Name: Crane
   m_TagString: Untagged
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4547048111637112864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4310860624843140764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf34260c91419934a9832ef52cfa6b9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ItemType: 1
+  playerinrange: 0
+  in_range_text: "Appuyez sur E pour r\xE9colter"

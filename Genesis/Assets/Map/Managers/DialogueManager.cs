@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager instance;
-    private Queue<string> dialogue;
+    public Queue<string> dialogue;
     public Text Name_Dialogue;
     public Text Texte_Dialogue;
     public Animator dialogue_panel;
@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartADialogue(NpcScript npc)
     {
+        Debug.Log("ROUTETES");
         dialogue_panel.SetBool("isOpen", true); //Apparition du Panel de texte
         dialogue.Clear(); //Au cas où l'ancien dialogue n'a pas vider la file
         foreach (string texteframe in npc.NPCDialogue[npc.Dialogue_Part].texte)
@@ -36,10 +37,10 @@ public class DialogueManager : MonoBehaviour
 
     public bool ContinueADialogue()
     {
-        //Debug.Log(dialogue.Count);
+        Debug.Log("non");
         if (dialogue.Count == 0)
         {
-			dialogue_panel.SetBool("isOpen",false); //Masque le panel de dialogue
+            dialogue_panel.SetBool("isOpen",false); //Masque le panel de dialogue
             return true;
         }
         string text = dialogue.Dequeue();

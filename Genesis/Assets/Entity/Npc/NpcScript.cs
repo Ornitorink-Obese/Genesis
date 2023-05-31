@@ -1,12 +1,15 @@
 using System;
+using System.Threading;
+using Mirror;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NpcScript : EntityScript
+public class NpcScript : MonoBehaviour
 {
     public bool DEBUG;
     // -------------------------- CARACTERISTIQUES ----------------- //
     public string NPCName;
+    public float speed;
     public Rigidbody2D NPCBody;
     public bool PlayerInRange;
     public Text PlayerInRangeText;
@@ -36,6 +39,7 @@ public Button button3;
     private int i;
 
     private bool dialoguestart;
+    public int timer;
     
 
     void Start()
@@ -47,6 +51,7 @@ button1=GameObject.FindGameObjectWithTag("Button1").GetComponent<Button>();
 button2=GameObject.FindGameObjectWithTag("Button2").GetComponent<Button>();
 button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
 dialoguestart=false;
+timer = 0;
 
     }
 
@@ -54,6 +59,14 @@ dialoguestart=false;
     {
         if (PlayerInRange)
         {
+            timer += 1;
+            Debug.Log(timer);
+            if (timer >= 1000 && Dialogue_Part != 0 && NPCQuest.QuestStatus != Quest.Status.FINISHED)
+            {
+                ContinueDialogue();
+                timer=0;
+            }
+            Debug.Log("UPDATE");
             // Get choice of player
             if (Input.GetKeyDown(KeyCode.E) && Dialogue_Part == 0 && NPCQuest.QuestStatus != Quest.Status.FINISHED)
             {
@@ -63,6 +76,7 @@ dialoguestart=false;
             // Continue Dialogue if don't finished
             if (Input.GetKeyDown(KeyCode.Return) && Dialogue_Part != 0 && NPCQuest.QuestStatus != Quest.Status.FINISHED)
             {
+                Debug.Log("NEXT");
                 PlayerInRangeText.enabled = false;
                 ContinueDialogue();
             }
@@ -77,6 +91,7 @@ dialoguestart=false;
                     PlayerInRangeText.enabled = false;
 
                         dialoguestart=true;
+
                     }
                 else
                 {
@@ -86,6 +101,8 @@ dialoguestart=false;
                         PlayerInRangeText.enabled = false;
 
                         dialoguestart=true;
+                    
+
 
                     
                 }
@@ -96,7 +113,9 @@ dialoguestart=false;
                 if (dialoguestart)
                 {
                     DialogueManager.instance.ContinueADialogue();
+                    
                     dialoguestart = false;
+                    Destroy(gameObject);
                 }
             }
         }
@@ -108,6 +127,9 @@ dialoguestart=false;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        i = 0;
+        PlayerInRangeText = GameObject.FindGameObjectWithTag("PlayerInRangeTxt").GetComponent<Text>();
+        already_choice = false;
         if (collision.CompareTag("Player") && collision.GetType()==typeof(PolygonCollider2D))
         {
             PlayerInRange = true;
@@ -136,27 +158,33 @@ dialoguestart=false;
     {
         if (DialogueManager.instance.ContinueADialogue())
         {
-if (Dialogue_Part==3)
-{
+            Debug.Log("FABIEN");
+        if (Dialogue_Part==3)
+        {
             QuestManager.instance.StartAQuest(this.NPCQuest);
             NPCBody.position = final_point;
             points = new Vector2[] { final_point };
             speed = 100;
-}
-else{
-Debug.Log("FINISH");
-//if (NPCQuest.
-Dialogue_Part = 0;
-ActivateButton();
-GetChoice();
-already_choice=false;
-}
+        }
+    else{
+        Debug.Log("FINISH");
+
+    Dialogue_Part = 0;
+    ActivateButton();
+    GetChoice();
+    already_choice=false;
+        }
+        
         }
     }
 
     private void GetChoice()
     {
-        ChoicesManager.instance.StartChoices(this);
+        Debug.Log("GETCHOICE");
+        if (PlayerInRange)
+        {
+            ChoicesManager.instance.StartChoices(this);
+        }
     }
 
     public void EndChoice(int change)
@@ -190,9 +218,12 @@ DesactivateButton();
 
 private void DesactivateButton()
 {
-button1.interactable = false;
-button2.interactable = false;
-button3.interactable=false;
+    button1=GameObject.FindGameObjectWithTag("Button1").GetComponent<Button>();
+    button2=GameObject.FindGameObjectWithTag("Button2").GetComponent<Button>();
+    button3=GameObject.FindGameObjectWithTag("Button3").GetComponent<Button>();
+    button1.interactable = false;
+    if (button2 is not null) button2.interactable = false;
+    if (button3 is not null) button3.interactable = false;
 }
 
 private void ActivateButton()
